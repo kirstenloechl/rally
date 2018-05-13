@@ -34,6 +34,8 @@ public class RallyGame extends JPanel {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        frame.addKeyListener(p.player);
+
         while (true) {
             p.update();
             game.repaint();

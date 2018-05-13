@@ -1,3 +1,4 @@
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 public class PhysicsSimulation {
@@ -10,6 +11,7 @@ public class PhysicsSimulation {
 
     public PhysicsCircle ball;
     public ArrayList<PhysicsRectangle> rectangles;
+    public PhysicsPlayer player;
 
     public PhysicsSimulation() {
         this.ball = new PhysicsCircle(30, 30, 30, 0.95, 0.99, 100, 100);
@@ -18,6 +20,8 @@ public class PhysicsSimulation {
         rectangles.add(new PhysicsRectangle(0, 0, 10, 500, 1));
         rectangles.add(new PhysicsRectangle(0, 500, 1000, 10, 1));
         rectangles.add(new PhysicsRectangle(1000, 0, 10, 500, 1));
+        this.player = new PhysicsPlayer(480, 250, 100, 20, 1, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, 10.0);
+        rectangles.add(this.player);
 
     }
 
