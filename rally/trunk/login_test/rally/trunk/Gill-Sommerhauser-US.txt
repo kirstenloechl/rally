@@ -1,0 +1,6 @@
+As a player, I want to have access to a leaderboard, so I can see how my score ranks compared to other players.
+
+As a player, I want to be able to adjust the level of difficulty of the game, so I can move to harder levels once I have mastered the easier ones. 
+
+As a new player or beginner player, I want to have instructions available, so I know how to play the game. 
+

@@ -1,0 +1,5 @@
+The system shall provide an average framerate of at least 30 FPS.
+The system shall provide a minimum* framerate of at least 10 FPS.
+The system shall provide a method to adjust gravity intensity.
+
+*99th percentile minimum
