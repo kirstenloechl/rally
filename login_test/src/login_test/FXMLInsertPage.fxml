@@ -9,17 +9,12 @@
 
 <AnchorPane id="AnchorPane" prefHeight="760.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login_test.FXMLInsertPageController">
     <children>
-        <Button fx:id="button" layoutX="170.0" layoutY="133.0" onAction="#doneButtonAction" text="Login" />
-        <Button fx:id="back_button" layoutX="110.0" layoutY="133.0" onAction="#backButtonAction" text="Back" />
-        <Label fx:id="label" layoutX="122.0" layoutY="27.0" minHeight="16" minWidth="69" text="Sign In">
-          <font>
-              <Font size="28.0" />
-          </font>
-        </Label>
-      <TextField fx:id="username_box" layoutX="86.0" layoutY="65.0" />
-      <TextField fx:id="password_box" layoutX="86.0" layoutY="100.0" />
-      <Label fx:id="label1" layoutX="25.0" layoutY="69.0" minHeight="16" minWidth="69" text="Username" />
-      <Label fx:id="label11" layoutX="25.0" layoutY="104.0" minHeight="16" minWidth="69" text="Password" />
+        <Button fx:id="button" layoutX="750.0" layoutY="420.0" onAction="#doneButtonAction" text="Go!" />
+        <Button fx:id="back_button" layoutX="455.0" layoutY="700.0" onAction="#backButtonAction" text="Back" />
+          
+      <TextField fx:id="username_box" layoutX="260.0" layoutY="420.0" />
+      <TextField fx:id="password_box" layoutX="570.0" layoutY="420.0" />
+      
       <Label fx:id="invalid_label" layoutX="96.0" layoutY="169.0" textFill="#ee0b0b" />
     </children>
 </AnchorPane>
