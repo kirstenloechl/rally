@@ -26,17 +26,26 @@ public class PhysicsPlayer extends PhysicsRectangle implements KeyListener{
     public void keyPressed(KeyEvent e) {
 
         if (e.getKeyCode() == l) {
-            this.x -= d;
+            this.vel_x = -d;
 
         }
 
         if (e.getKeyCode() == r) {
-            this.x += d;
+            this.vel_x = d;
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
+
+        if (e.getKeyCode() == l) {
+            this.vel_x = 0;
+
+        }
+
+        if (e.getKeyCode() == r) {
+            this.vel_x = 0;
+        }
 
     }
 

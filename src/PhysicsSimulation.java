@@ -20,7 +20,7 @@ public class PhysicsSimulation {
         rectangles.add(new PhysicsRectangle(0, 0, 10, 500, 1));
         rectangles.add(new PhysicsRectangle(0, 500, 1000, 10, 1));
         rectangles.add(new PhysicsRectangle(1000, 0, 10, 500, 1));
-        this.player = new PhysicsPlayer(480, 250, 100, 20, 1, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, 10.0);
+        this.player = new PhysicsPlayer(480, 250, 100, 20, 1, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, 200.0);
         rectangles.add(this.player);
 
     }
@@ -33,6 +33,9 @@ public class PhysicsSimulation {
         this.ball.vel_y += this.GRAVITY * this.SPF;
 
         for(PhysicsRectangle r: this.rectangles) {
+
+            r.x += r.vel_x * this.SPF;
+            r.y += r.vel_y * this.SPF;
 
             this.ball.handleCollision(r);
 
