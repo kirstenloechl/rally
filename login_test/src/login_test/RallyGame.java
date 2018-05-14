@@ -24,7 +24,7 @@ public class RallyGame extends JPanel {
         g2d.draw(p.ball);
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public void play () throws InterruptedException {
 
         JFrame frame = new JFrame("RallyGame");
         PhysicsSimulation p = new PhysicsSimulation();

@@ -33,7 +33,8 @@ public class FXMLLoginController implements Initializable {
     private void loginButtonAction(ActionEvent event) throws IOException {
         
         Parent login_page_parent =  FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        
+        login_page_parent.setId("login");
+        login_page_parent.getStylesheets().add("style.css");
         Scene login_page_scene = new Scene(login_page_parent);
         
         Stage app_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -47,7 +48,9 @@ public class FXMLLoginController implements Initializable {
     @FXML
     private void signupButtonAction(ActionEvent event) throws IOException {
     	Parent signup_page_parent =  FXMLLoader.load(getClass().getResource("FXMLInsertPage.fxml"));
-        Scene signup_page_scene = new Scene(signup_page_parent);
+    	signup_page_parent.setId("login");
+        signup_page_parent.getStylesheets().add("style.css");
+    	Scene signup_page_scene = new Scene(signup_page_parent);
         Stage app_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         
         app_stage.hide(); 

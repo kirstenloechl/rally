@@ -57,20 +57,20 @@ public class FXMLInsertPageController {
     
      @FXML
     private void doneButtonAction(ActionEvent event) throws IOException {
-
-         
+         System.out.println("test1");
         String query = "INSERT INTO logins (username, password) VALUES (" + "'" + username_text.getText() + 
                 "'," + "'" + password_text.getText() + "');";
-        
+        System.out.println("test2");
         System.out.println("Inserting\n" + query);
         insertStatement(query);
         
         Parent date_page_parent = FXMLLoader.load(getClass().getResource("FXMLHomePage.fxml"));
-        
+        date_page_parent.setId("menu");
+        date_page_parent.getStylesheets().add("style.css");
         Scene date_page_scene = new Scene(date_page_parent);
         
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.hide(); //optional
+        app_stage.hide();
         app_stage.setScene(date_page_scene);
         app_stage.show();     
     }

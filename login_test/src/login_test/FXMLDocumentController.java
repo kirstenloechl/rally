@@ -41,6 +41,7 @@ public class FXMLDocumentController implements Initializable {
         
             System.out.println("DO IT");
             Parent home_page_parent =  FXMLLoader.load(getClass().getResource("FXMLHomePage.fxml"));
+            home_page_parent.setId("menu");
             home_page_parent.getStylesheets().add("style.css");            
             Scene home_page_scene = new Scene(home_page_parent);
             Stage app_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

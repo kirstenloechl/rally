@@ -3,3 +3,9 @@
    -fx-background-repeat: stretch;   
    -fx-background-position: center center;
 }
+
+#login{
+   -fx-background-image: url('rally_menu.png');
+   -fx-background-repeat: stretch;   
+   -fx-background-position: center center;
+}
