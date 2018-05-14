@@ -20,7 +20,7 @@ public class PhysicsSimulation {
         rectangles.add(new PhysicsRectangle(0, 0, 10, 500, 1));
         rectangles.add(new PhysicsRectangle(0, 500, 1000, 10, 1));
         rectangles.add(new PhysicsRectangle(1000, 0, 10, 500, 1));
-        this.player = new PhysicsPlayer(480, 250, 100, 20, 1, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, 200.0);
+        this.player = new PhysicsPlayer(480, 250, 100, 20, 1.5, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, 200.0);
         rectangles.add(this.player);
 
     }

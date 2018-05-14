@@ -55,8 +55,8 @@ public class PhysicsCircle extends Ellipse2D.Double {
         if(n_v > 0)
             return false;
 
-        this.vel_x -= (1 + this.c) * n_v * n_x / n_d;
-        this.vel_y -= (1 + this.c) * n_v * n_y / n_d;
+        this.vel_x -= (1 + Math.sqrt(this.c * r.c)) * n_v * n_x / n_d;
+        this.vel_y -= (1 + Math.sqrt(this.c * r.c)) * n_v * n_y / n_d;
         this.vel_x *= this.m;
         this.vel_y *= this.m;
 
