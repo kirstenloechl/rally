@@ -1,3 +1,4 @@
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 public class PhysicsSimulation {
@@ -9,23 +10,26 @@ public class PhysicsSimulation {
     private double time = 0;
 
     public PhysicsCircle ball;
-    private ArrayList<PhysicsRectangle> rectangles;
+    public ArrayList<PhysicsRectangle> rectangles;
+    public PhysicsPlayer player;
 
     public PhysicsSimulation() {
-        this.ball = new PhysicsCircle(30, 10, 10, 300, 300, 0.95, 0.99);
+        this.ball = new PhysicsCircle(30, 30, 30, 0.95, 0.99, 100, 100);
         this.rectangles = new ArrayList<PhysicsRectangle>();
-        rectangles.add(new PhysicsRectangle(1000, 20, 0, 000));
-        rectangles.add(new PhysicsRectangle(1000, 20, 0, 500));
-        rectangles.add(new PhysicsRectangle(20, 1000, 000, 0));
-        rectangles.add(new PhysicsRectangle(20, 1000, 500, 0));
+        rectangles.add(new PhysicsRectangle(0, 0,1000, 10, 1));
+        rectangles.add(new PhysicsRectangle(0, 0, 10, 500, 1));
+        rectangles.add(new PhysicsRectangle(0, 500, 1000, 10, 1));
+        rectangles.add(new PhysicsRectangle(1000, 0, 10, 500, 1));
+        this.player = new PhysicsPlayer(480, 250, 100, 20, 1, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, 10.0);
+        rectangles.add(this.player);
 
     }
 
     public void update() {
 
         this.time += this.SPF;
-        this.ball.pos_x += this.ball.vel_x * this.SPF;
-        this.ball.pos_y += this.ball.vel_y * this.SPF;
+        this.ball.x += this.ball.vel_x * this.SPF;
+        this.ball.y += this.ball.vel_y * this.SPF;
         this.ball.vel_y += this.GRAVITY * this.SPF;
 
         for(PhysicsRectangle r: this.rectangles) {
