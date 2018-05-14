@@ -14,7 +14,7 @@
             <Font size="47.0" />
          </font>
       </Label>
-      <Button layoutX="264.0" layoutY="121.0" mnemonicParsing="false" text="Play Rally" />
-      <Button layoutX="247.0" layoutY="167.0" mnemonicParsing="false" text="View Leaderboard" />
+      <Button layoutX="264.0" layoutY="121.0" mnemonicParsing="false" onAction="#playButtonAction" text="Play Rally" />
+      <Button layoutX="247.0" layoutY="167.0" mnemonicParsing="false" onAction="#scoresButtonAction" text="View Leaderboard" />
    </children>
 </AnchorPane>

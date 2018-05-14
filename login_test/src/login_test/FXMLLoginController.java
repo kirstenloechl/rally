@@ -26,14 +26,16 @@ public class FXMLLoginController implements Initializable {
  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    	
     }    
     
     @FXML
     private void loginButtonAction(ActionEvent event) throws IOException {
         
         Parent login_page_parent =  FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        
         Scene login_page_scene = new Scene(login_page_parent);
+        
         Stage app_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         
         app_stage.hide();

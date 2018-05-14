@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -31,6 +32,8 @@ public class FXMLDocumentController implements Initializable {
     private TextField password_box;
     @FXML
     private Label invalid_label;
+    @FXML
+    private Button back_button;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
@@ -38,6 +41,7 @@ public class FXMLDocumentController implements Initializable {
         
             System.out.println("DO IT");
             Parent home_page_parent =  FXMLLoader.load(getClass().getResource("FXMLHomePage.fxml"));
+            home_page_parent.getStylesheets().add("style.css");            
             Scene home_page_scene = new Scene(home_page_parent);
             Stage app_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             
@@ -55,6 +59,19 @@ public class FXMLDocumentController implements Initializable {
             }
     }
     
+    @FXML
+    private void backButtonAction(ActionEvent event) throws IOException {
+   
+        Parent date_page_parent = FXMLLoader.load(getClass().getResource("FXMLLogin.fxml"));
+        date_page_parent.setId("pane");
+        date_page_parent.getStylesheets().add("style.css");
+        Scene date_page_scene = new Scene(date_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.hide(); //optional
+        app_stage.setScene(date_page_scene);
+        app_stage.show();     
+    }
+    
     private boolean isValidCredentials()
     {
         boolean let_in = false;
@@ -62,7 +79,6 @@ public class FXMLDocumentController implements Initializable {
         Connection c = null;
         Statement stmt = null;
         try {
-        	Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:database.db");
             c.setAutoCommit(false);
             

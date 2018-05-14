@@ -7,15 +7,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login_test.FXMLLoginController">
+<AnchorPane id="AnchorPane" prefHeight="760.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login_test.FXMLLoginController">
    <children>
-      <Label layoutX="146.0" layoutY="25.0" text="Welcome!">
+      
+      <Text layoutX="445.0" layoutY="600.0" text="Menu" stroke = "#FFFFFF" fill = "#FFFFFF">
          <font>
-            <Font size="68.0" />
+            <Font size="50.0" />
          </font>
-      </Label>
-      <Button fx:id="loginbutton" layoutX="173.0" layoutY="175.0" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="25.0" prefWidth="235.0" text="Login" />
-      <Button fx:id="signupbutton" layoutX="173.0" layoutY="219.0" mnemonicParsing="false" onAction="#signupButtonAction" prefHeight="25.0" prefWidth="235.0" text="Sign Up" />
+      </Text>
+      <Button fx:id="loginbutton" layoutX="223.0" layoutY="675.0" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="55.0" prefWidth="300.0" text="Login" />
+      <Button fx:id="signupbutton" layoutX="573.0" layoutY="675.0" mnemonicParsing="false" onAction="#signupButtonAction" prefHeight="55.0" prefWidth="300.0" text="Sign Up" />
       <Label fx:id="task_label" layoutX="279.0" layoutY="329.0" />
    </children>
 </AnchorPane>

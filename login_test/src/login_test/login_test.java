@@ -1,6 +1,6 @@
 package login_test;
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.awt.Image;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,12 +13,16 @@ public class login_test extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLLogin.fxml"));
+        root.setId("pane");
+        root.getStylesheets().add("style.css");   
+       
         Scene scene_login = new Scene(root);
         stage.setScene(scene_login);
         stage.show();
         
     }
-
+    
+    
 
     public static void main(String[] args) {
         launch(args);
