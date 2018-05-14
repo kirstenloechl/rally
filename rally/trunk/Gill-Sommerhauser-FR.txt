@@ -1,0 +1,4 @@
+The system shall provide players access to a leaderboard .
+The system shall allow for adjustment of the difficulty level of the game.
+The system shall provide instructions on how to play the game.
+
