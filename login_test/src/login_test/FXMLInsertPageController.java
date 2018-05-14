@@ -29,6 +29,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * @author kirstenloechl7
+ *
+ */
 public class FXMLInsertPageController {
     
     @FXML

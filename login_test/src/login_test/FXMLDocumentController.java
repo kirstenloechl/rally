@@ -20,6 +20,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * @author kirstenloechl7
+ *
+ */
 public class FXMLDocumentController implements Initializable {
     
     @FXML
