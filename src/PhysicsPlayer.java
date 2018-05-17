@@ -1,19 +1,23 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class PhysicsPlayer extends PhysicsRectangle implements KeyListener{
+public class PhysicsPlayer extends PhysicsRectangle implements KeyListener {
 
     private int left;
     private int right;
-    public double speed;
+    private double maxVelocity;
 
-    public PhysicsPlayer(double x, double y, double w, double h, double bounce, double mass, double velocityX, double velocityY, double accelerationX, double accelerationY, int left, int right, double speed) {
+    private boolean held;
+
+    public PhysicsPlayer(double x, double y, double w, double h, double bounce, double mass, double velocityX, double velocityY, double accelerationX, double accelerationY, int left, int right, double maxVelocity) {
 
         super(x, y, w, h, bounce, mass, velocityX, velocityY, accelerationX, accelerationY);
 
         this.left = left;
         this.right = right;
-        this.speed = speed;
+        this.maxVelocity = maxVelocity;
+
+        this.held = false;
 
     }
 
@@ -26,13 +30,13 @@ public class PhysicsPlayer extends PhysicsRectangle implements KeyListener{
     public void keyPressed(KeyEvent e) {
 
         if (e.getKeyCode() == this.left) {
-            setVelocityX(-speed);
-            setAccelerationX(0);
+            this.held = true;
+            setVelocityX(-maxVelocity);
         }
 
         if (e.getKeyCode() == this.right) {
-            setVelocityX(speed);
-            setAccelerationX(0);
+            this.held = true;
+            setVelocityX(maxVelocity);
         }
     }
 
@@ -40,13 +44,14 @@ public class PhysicsPlayer extends PhysicsRectangle implements KeyListener{
     public void keyReleased(KeyEvent e) {
 
         if (e.getKeyCode() == this.left) {
+            this.held = false;
             setVelocityX(0);
         }
 
         if (e.getKeyCode() == this.right) {
+            this.held = false;
             setVelocityX(0);
         }
 
     }
-
 }

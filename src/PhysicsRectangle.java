@@ -7,15 +7,15 @@ import java.lang.UnsupportedOperationException;
 
 public class PhysicsRectangle extends Rectangle2D.Double implements PhysicsObject {
 
-    private double bounce;
-    private double mass;
-    private double inverseMass;
+    protected double bounce;
+    protected double mass;
+    protected double inverseMass;
 
-    private double velocityX;
-    private double velocityY;
+    protected double velocityX;
+    protected double velocityY;
 
-    private double accelerationX;
-    private double accelerationY;
+    protected double accelerationX;
+    protected double accelerationY;
 
     public PhysicsRectangle(double x, double y, double w, double h, double bounce, double mass, double velocityX, double velocityY, double accelerationX, double accelerationY) {
 

@@ -7,17 +7,17 @@ import java.lang.UnsupportedOperationException;
 
 public class PhysicsCircle extends Ellipse2D.Double implements PhysicsObject {
 
-    private double radius;
+    protected double radius;
 
-    private double bounce;
-    private double mass;
-    private double inverseMass;
+    protected double bounce;
+    protected double mass;
+    protected double inverseMass;
 
-    private double velocityX;
-    private double velocityY;
+    protected double velocityX;
+    protected double velocityY;
 
-    private double accelerationX;
-    private double accelerationY;
+    protected double accelerationX;
+    protected double accelerationY;
 
     public PhysicsCircle(double x, double y, double radius, double bounce, double mass, double velocityX, double velocityY, double accelerationX, double accelerationY) {
 

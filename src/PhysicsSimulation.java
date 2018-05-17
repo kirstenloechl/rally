@@ -3,9 +3,9 @@ import java.util.ArrayList;
 
 public class PhysicsSimulation {
 
-    public static final double FPS = 60;
-    public static final double TICK = 1.0 / FPS;
-    public static final double GRAVITY = 100;
+    public final double FPS = 60;
+    public final double TICK = 1.0 / FPS;
+    public final double GRAVITY = 100;
 
     private double time = 0;
 
@@ -21,7 +21,7 @@ public class PhysicsSimulation {
         rectangles.add(new PhysicsRectangle(0, 0, 10, 500, 1, 0, 0, 0, 0, 0));
         rectangles.add(new PhysicsRectangle(0, 490, 1000, 10, 1, 0, 0, 0, 0, 0));
         rectangles.add(new PhysicsRectangle(990, 0, 10, 500, 1, 0, 0, 0, 0, 0));
-        this.player = new PhysicsPlayer(480, 250, 100, 20, 1.0, 0, 0, 0, 0, 0, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, 200.0);
+        this.player = new PhysicsPlayer(480, 250, 100, 20, 1.0, 0, 0, 0, 0, 0, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, 300.0);
         rectangles.add(this.player);
 
     }
@@ -69,7 +69,7 @@ public class PhysicsSimulation {
 
             // TODO Circle center is inside rectangle
 
-            // Approximate solution
+            // Approximated solution
             normalX *= -1;
             normalY *= -1;
 
@@ -103,9 +103,6 @@ public class PhysicsSimulation {
         r.setVelocityX(r.getVelocityX() -  r.getInverseMass() * impulse * normalX / normalDistance);
         r.setVelocityY(r.getVelocityY() -  r.getInverseMass() * impulse * normalY / normalDistance);
 
-        return;
     }
-
-
 
 }
