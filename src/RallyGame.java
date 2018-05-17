@@ -39,7 +39,7 @@ public class RallyGame extends JPanel {
         while (true) {
             p.update();
             game.repaint();
-            Thread.sleep(Math.round(p.SPF * 1000));
+            Thread.sleep(Math.round(p.TICK * 1000));
         }
     }
 
