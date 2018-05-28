@@ -1,5 +1,5 @@
-/PhysicsCircle.class
-/PhysicsRectangle.class
-/PhysicsSimulation.class
+/logic.PhysicsCircle.class
+/logic.PhysicsRectangle.class
+/logic.PhysicsSimulation.class
 /Player.class
-/RallyGame.class
+/logic.RallyGame.class
