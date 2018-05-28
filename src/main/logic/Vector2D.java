@@ -2,7 +2,7 @@ package logic;
 
 import java.awt.geom.Point2D;
 
-public class Vector2D extends Point2D implements Cloneable {
+public class Vector2D extends Point2D {
 
     private double x;
     private double y;
@@ -63,10 +63,13 @@ public class Vector2D extends Point2D implements Cloneable {
 
         Vector2D v = (Vector2D) o;
 
-        if(v.x == this.x && v.y == this.y)
-            return true;
+        return (v.x == this.x && v.y == this.y);
+    }
 
-        return false;
+    @Override
+    public int hashCode() {
+
+        return (int) (x * y);
 
     }
 
@@ -119,12 +122,6 @@ public class Vector2D extends Point2D implements Cloneable {
 
         return new Vector2D(x - v.x, y - v.y);
 
-    }
-
-    public Vector2D clone() {
-        // Returns a clone of this vector.
-
-        return new Vector2D(x, y);
     }
 
 }
