@@ -1,0 +1,8 @@
+@import url("master.css");
+
+#anchor {
+   -fx-background-image: url('/images/login.png');
+   -fx-background-repeat: stretch;
+   -fx-background-size: auto;   
+
+}

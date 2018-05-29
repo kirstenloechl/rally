@@ -8,10 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main_menu.FXMLLoginController">
-   <stylesheets>
-   	<URL value="@/styles/master.css" />
-   </stylesheets>
+<AnchorPane id="anchor" prefHeight="400.0" prefWidth="600.0" stylesheets="@/styles/login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main_menu.FXMLLoginController">
    <children>
       <Label layoutX="146.0" layoutY="25.0" text="Welcome!">
          <font>

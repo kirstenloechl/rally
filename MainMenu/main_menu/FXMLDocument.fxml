@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main_menu.FXMLDocumentController">
+<AnchorPane id="anchor" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main_menu.FXMLDocumentController">
+    <stylesheets>
+   	 <URL value="@/styles/welcome.css" />
+    </stylesheets>   
     <children>
-        <Button fx:id="button" layoutX="128.0" layoutY="133.0" onAction="#handleButtonAction" text="Login" />
-        <Label fx:id="label" layoutX="126.0" layoutY="27.0" minHeight="16" minWidth="69" text="Welcome" />
+        <Button fx:id="button" layoutX="110.0" layoutY="140.0" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="100.0" text="Login" />
+        <Label id="title_1" fx:id="label" layoutX="110.0" layoutY="23.0" minHeight="16" minWidth="69" text="Welcome">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
       <TextField fx:id="username_box" layoutX="86.0" layoutY="65.0" />
       <TextField fx:id="password_box" layoutX="86.0" layoutY="100.0" />
-      <Label fx:id="label1" layoutX="25.0" layoutY="69.0" minHeight="16" minWidth="69" text="Username" />
-      <Label fx:id="label11" layoutX="25.0" layoutY="104.0" minHeight="16" minWidth="69" text="Password" />
+      <Label fx:id="label1" layoutX="22.0" layoutY="69.0" minHeight="16" minWidth="69" text="Username" />
+      <Label fx:id="label11" layoutX="22.0" layoutY="104.0" minHeight="16" minWidth="69" text="Password" />
       <Label fx:id="invalid_label" layoutX="96.0" layoutY="169.0" textFill="#ee0b0b" />
     </children>
 </AnchorPane>
