@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane fx:controller="main_menu.FXMLTwoPlayerController"
+ prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <stylesheets>
+   	<URL value="@/styles/master.css" />
+   </stylesheets>   
+   <top>
+      <Button fx:id="btnReturn" mnemonicParsing="false" onAction="#handleReturn" prefHeight="40.0" prefWidth="120.0" text="Back" BorderPane.alignment="CENTER" />
+   </top>
+</BorderPane>
