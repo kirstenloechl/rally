@@ -59,7 +59,9 @@ public class FXMLInsertPageController {
     		System.out.println("INVALID USERNAME");
             username_text.clear();
             password_text.clear();
-            invalid_label.setLayoutX((stage.getWidth() - invalid_label.getWidth()) / 2);
+            
+            invalid_label.setVisible(false);
+            invalid_label.setLayoutX(100);
             invalid_label.setText("Username already exists");
             
     	}
@@ -67,10 +69,13 @@ public class FXMLInsertPageController {
     		System.out.println("NO USERNAME || PASSWORD SPECIFIED");
     		username_text.clear();
             password_text.clear();
-            
-            invalid_label.setText("Please provide both a username and password");
-            invalid_label.setLayoutX((stage.getWidth() - invalid_label.getWidth()) / 2);
+
+            invalid_label.setVisible(false);
+            invalid_label.setLayoutX(50);
+            invalid_label.setText("Please provide a username and password");
+
            
+            
             
     	}
     	else {
@@ -93,6 +98,7 @@ public class FXMLInsertPageController {
     	     app_stage.setScene(date_page_scene);
     	     app_stage.show();     
     	} 
+    	invalid_label.setVisible(true);
     }
      
     private void insertStatement(String insert_query){
