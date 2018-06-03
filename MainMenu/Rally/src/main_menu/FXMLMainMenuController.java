@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import logic.RallyGame;
 
 public class FXMLMainMenuController {
 	
@@ -39,7 +40,12 @@ public class FXMLMainMenuController {
 	
 	@FXML
 	protected void handleTwoPlayer(ActionEvent event) throws Exception {
+		
+		RallyGame rg = new RallyGame();
+		rg.runGame();
+		
 
+		/*
 		Parent root = FXMLLoader.load(getClass().getResource("FXMLTwoPlayer.fxml"));
 		Scene main = new Scene(root, MENU_WIDTH, MENU_HEIGHT); 	
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -51,6 +57,7 @@ public class FXMLMainMenuController {
 		
 		stage.setScene(main);
 		stage.show();
+		*/
 	}
 	
 	@FXML

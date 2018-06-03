@@ -40,7 +40,7 @@ public class RallyGame extends JPanel {
         g2d.drawString(String.format("%d - %d", p.getTeamOneScore(), p.getTeamTwoScore()), WIDTH/2 - 45, HEIGHT/8);
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public void runGame() throws InterruptedException {
 
         JFrame frame = new JFrame("logic.RallyGame");
         PhysicsSimulation p = new PhysicsSimulation(TICK, WIDTH, HEIGHT, BORDER);
