@@ -53,7 +53,6 @@ public class FXMLInsertPageController {
     
     @FXML
     private void handleLogin(ActionEvent event) throws IOException {
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     	
     	if (userExists(username_text.getText())) {
     		System.out.println("INVALID USERNAME");

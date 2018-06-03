@@ -1,5 +1,8 @@
 package main_menu;
 
+import javax.swing.JFrame;
+
+import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,9 +39,11 @@ public class FXMLMainMenuController {
 	
 	@FXML
 	protected void handleTwoPlayer(ActionEvent event) throws Exception {
+
 		Parent root = FXMLLoader.load(getClass().getResource("FXMLTwoPlayer.fxml"));
 		Scene main = new Scene(root, MENU_WIDTH, MENU_HEIGHT); 	
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
 		
 		Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
 	    stage.setX((screenBounds.getWidth() - MENU_WIDTH) / 2); 
