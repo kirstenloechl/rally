@@ -123,7 +123,7 @@ public class PhysicsSimulation {
                     teamOneScore++;
                     return;
                 } else {
-                    Sound.playSound("D:\\Downloads\\Bounce.wav");
+                    Sound.playSound("rally/src/Bounce.wav");
                 }
             }
         }
@@ -135,7 +135,7 @@ public class PhysicsSimulation {
                 if(id == null) {
                     continue;
                 } else {
-                	Sound.playSound("D:\\\\Downloads\\\\BounceLow.wav");
+                	Sound.playSound("rally/src/BounceLow.wav");
                     break;
                 }
             }
