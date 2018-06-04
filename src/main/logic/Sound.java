@@ -1,12 +1,13 @@
 package logic;
 
 import java.io.*;
-import java.net.URL;
 import javax.sound.sampled.*;
-import javax.swing.*;
-
 
 public class Sound {
+
+	private Sound() {
+		throw new IllegalStateException("Utility class");
+	}
 
 	public static void playSound(String audioFile) {
 		
@@ -17,13 +18,7 @@ public class Sound {
 	        clip.open(audioIn);
 	        clip.start();
 		} 
-		catch (UnsupportedAudioFileException e) {
-	         e.printStackTrace();
-	    } 
-		catch (IOException e) {
-	         e.printStackTrace();
-	    } 
-		catch (LineUnavailableException e) {
+		catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 	         e.printStackTrace();
 	    }
 	}

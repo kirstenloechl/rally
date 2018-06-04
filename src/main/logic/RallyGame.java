@@ -21,17 +21,17 @@ public class RallyGame extends JPanel {
         Graphics2D g2d = (Graphics2D) g;
 
         for(PhysicsObject o: p.getBalls()) {
-            g2d.setPaint(o.color);
+            g2d.setPaint(o.getColor());
             g2d.fill(o.getShape());
         }
 
         for(PhysicsObject o: p.getWalls()) {
-            g2d.setPaint(o.color);
+            g2d.setPaint(o.getColor());
             g2d.fill(o.getShape());
         }
 
         for(PhysicsObject o: p.getPlayers()) {
-            g2d.setPaint(o.color);
+            g2d.setPaint(o.getColor());
             g2d.fill(o.getShape());
         }
 

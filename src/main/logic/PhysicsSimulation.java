@@ -13,7 +13,6 @@ public class PhysicsSimulation {
     private double tick;
     private double width;
     private double height;
-    private double border;
 
     private int teamOneScore;
     private int teamTwoScore;
@@ -21,6 +20,11 @@ public class PhysicsSimulation {
     private List<PhysicsObject> balls;
     private List<PhysicsObject> walls;
     private List<PhysicsPlayer> players;
+
+    private static final String BALL = "BALL";
+    private static final String FIELD = "FIELD";
+    private static final String TEAMONE = "TEAMONE";
+    private static final String TEAMTWO = "TEAMTWO";
 
     public PhysicsSimulation(double tick, int width, int height, int border) {
 
@@ -31,22 +35,21 @@ public class PhysicsSimulation {
 
         this.width = width;
         this.height = height;
-        this.border = border;
 
-        PhysicsObject ball = new PhysicsObject("Ball", new Ellipse2D.Double(), new Vector2D(30, 30), new Vector2D(100, 100), 100, Color.WHITE);
+        PhysicsObject ball = new PhysicsObject(BALL, new Ellipse2D.Double(), new Vector2D(30, 30), new Vector2D(100, 100), 100, Color.WHITE);
         ball.setBounce(0.9);
         ball.setAcceleration(0, 100);
 
         balls.add(ball);
         reset();
 
-        PhysicsObject topWall = new PhysicsObject("Field", new Rectangle2D.Double(), new Vector2D(0, 0), new Vector2D(width, border));
-        PhysicsObject leftWall = new PhysicsObject("Field", new Rectangle2D.Double(), new Vector2D(0, 0), new Vector2D(border, height));
-        PhysicsObject rightWall = new PhysicsObject("Field", new Rectangle2D.Double(), new Vector2D(width - border, 0), new Vector2D(width, height));
-        PhysicsObject centerWall = new PhysicsObject("Field", new Rectangle2D.Double(), new Vector2D((width - border) / 2, (height - border) / 2), new Vector2D((width + border) / 2, height - border));
+        PhysicsObject topWall = new PhysicsObject(FIELD, new Rectangle2D.Double(), new Vector2D(0, 0), new Vector2D(width, border));
+        PhysicsObject leftWall = new PhysicsObject(FIELD, new Rectangle2D.Double(), new Vector2D(0, 0), new Vector2D(border, height));
+        PhysicsObject rightWall = new PhysicsObject(FIELD, new Rectangle2D.Double(), new Vector2D(width - border, 0), new Vector2D(width, height));
+        PhysicsObject centerWall = new PhysicsObject(FIELD, new Rectangle2D.Double(), new Vector2D((width - border) / 2, (height - border) / 2), new Vector2D((width + border) / 2, height - border));
 
-        PhysicsObject teamOne = new PhysicsObject("GoalOne", new Rectangle2D.Double(), new Vector2D(0, height - border), new Vector2D(width/2, height));
-        PhysicsObject teamTwo = new PhysicsObject("GoalTwo", new Rectangle2D.Double(), new Vector2D(width/2, height - border), new Vector2D(width, height));
+        PhysicsObject teamOne = new PhysicsObject(TEAMONE, new Rectangle2D.Double(), new Vector2D(0, height - border), new Vector2D(width/2, height));
+        PhysicsObject teamTwo = new PhysicsObject(TEAMTWO, new Rectangle2D.Double(), new Vector2D(width/2, height - border), new Vector2D(width, height));
         teamOneScore = 0;
         teamTwoScore = 0;
 
@@ -57,8 +60,8 @@ public class PhysicsSimulation {
         walls.add(teamTwo);
         walls.add(centerWall);
 
-        PhysicsPlayer playerOne = new PhysicsPlayer(new PhysicsObject("TeamOne", new Rectangle2D.Double(), new Vector2D(width / 15, border), new Vector2D((width - border) / 4, height - 2 * border), 0, Color.RED), (border), (width - border) / 2, (width / 5), KeyEvent.VK_A, KeyEvent.VK_D);
-        PhysicsPlayer playerTwo = new PhysicsPlayer(new PhysicsObject("TeamTwo", new Rectangle2D.Double(), new Vector2D(width / 15, border), new Vector2D((width - border) * 3 / 4, height - 2 * border), 0, Color.BLUE), (width + border) / 2, (width - border), (width / 5), KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT);
+        PhysicsPlayer playerOne = new PhysicsPlayer(new PhysicsObject(TEAMONE, new Rectangle2D.Double(), new Vector2D(width / 15, border), new Vector2D((width - border) / 4, height - 2 * border), 0, Color.RED), (border), (width - border) / 2, (width / 5), KeyEvent.VK_A, KeyEvent.VK_D);
+        PhysicsPlayer playerTwo = new PhysicsPlayer(new PhysicsObject(TEAMTWO, new Rectangle2D.Double(), new Vector2D(width / 15, border), new Vector2D((width - border) * 3 / 4, height - 2 * border), 0, Color.BLUE), (width + border) / 2, (width - border), (width / 5), KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT);
 
         players.add(playerOne); // Ready Player One
         players.add(playerTwo);
@@ -105,6 +108,13 @@ public class PhysicsSimulation {
             p.update(tick);
         }
 
+        collidePlayers();
+        collideWalls();
+
+    }
+
+    private void collideWalls() {
+
         String id;
 
         for(PhysicsObject w: this.walls) {
@@ -114,11 +124,11 @@ public class PhysicsSimulation {
 
                 if(id == null) {
                     continue;
-                } if(id == "GoalOne") {
+                } if(id == TEAMONE) {
                     reset();
                     teamTwoScore++;
                     return;
-                } else if (id == "GoalTwo") {
+                } else if (id == TEAMTWO) {
                     reset();
                     teamOneScore++;
                     return;
@@ -127,19 +137,21 @@ public class PhysicsSimulation {
                 }
             }
         }
+    }
+
+    private void collidePlayers() {
+
+        String id;
 
         for(PhysicsPlayer p: this.players) {
             for (PhysicsObject b : balls) {
                 id = collide(b, p);
-
-                if(id == null) {
-                    continue;
-                } else {
-                	Sound.playSound("rally/src/BounceLow.wav");
-                    break;
+                if(id != null) {
+                    Sound.playSound("rally/src/BounceLow.wav");
                 }
             }
         }
+
     }
 
     private String collide(PhysicsObject b, PhysicsObject o) {
