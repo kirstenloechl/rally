@@ -1,12 +1,12 @@
 package logic;
 
-import java.awt.Color;
+import javafx.scene.paint.Color;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RectangularShape;
 
 public class PhysicsObject {
 
-    public Color color;
+    private Color color;
 
     private String id;
     private double mass;
@@ -68,6 +68,12 @@ public class PhysicsObject {
         this.acceleration = o.acceleration;
 
         this.shape = o.shape;
+
+    }
+
+    public Color getColor() {
+
+        return color;
 
     }
 

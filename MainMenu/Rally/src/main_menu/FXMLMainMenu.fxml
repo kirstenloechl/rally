@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane id="mainMenu" prefHeight="664.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main_menu.FXMLMainMenuController">
+   <stylesheets>
+   	<URL value="@/styles/menu.css" />
+   </stylesheets>
+   <bottom>
+      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnTwoPlayer" mnemonicParsing="false" onAction="#handleTwoPlayer" prefHeight="50.0" prefWidth="200.0" text="Two Player">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="btnLeaderboard" mnemonicParsing="false" onAction="#handleLeaderboard" prefHeight="50.0" prefWidth="200.0" text="Leaderboard" />
+            <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#handleSettings" prefHeight="50.0" prefWidth="200.0" text="Settings" />
+         </children>
+         <padding>
+            <Insets left="100.0" right="100.0" />
+         </padding>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </HBox>
+   </bottom>
+   <top>
+      <Button id="btnExit" fx:id="btnExit" alignment="CENTER" mnemonicParsing="false" onAction="#handleExit" prefHeight="40.0" prefWidth="100.0" text="Exit" BorderPane.alignment="BOTTOM_RIGHT">
+         <BorderPane.margin>
+            <Insets right="25.0" top="25.0" />
+         </BorderPane.margin>
+      </Button>
+   </top>
+</BorderPane>

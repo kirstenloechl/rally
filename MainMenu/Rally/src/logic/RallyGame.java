@@ -21,17 +21,17 @@ public class RallyGame extends JPanel {
         Graphics2D g2d = (Graphics2D) g;
 
         for(PhysicsObject o: p.getBalls()) {
-            g2d.setPaint(o.color);
+
             g2d.fill(o.getShape());
         }
 
         for(PhysicsObject o: p.getWalls()) {
-            g2d.setPaint(o.color);
+
             g2d.fill(o.getShape());
         }
 
         for(PhysicsObject o: p.getPlayers()) {
-            g2d.setPaint(o.color);
+
             g2d.fill(o.getShape());
         }
 
@@ -40,15 +40,13 @@ public class RallyGame extends JPanel {
         g2d.drawString(String.format("%d - %d", p.getTeamOneScore(), p.getTeamTwoScore()), WIDTH/2 - 45, HEIGHT/8);
     }
 
-    public void runGame() throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
         JFrame frame = new JFrame("logic.RallyGame");
-        PhysicsSimulation p = new PhysicsSimulation(TICK, WIDTH, HEIGHT, BORDER);
+        PhysicsSimulation p = new PhysicsSimulation(WIDTH, HEIGHT, BORDER);
         RallyGame game = new RallyGame();
         game.p = p;
-        
-       
-        	
+
         frame.add(game);
         frame.setSize(WIDTH, HEIGHT + BORDER);
         frame.setVisible(true);
@@ -61,7 +59,7 @@ public class RallyGame extends JPanel {
 
         while(loop) {
 
-            p.update();
+            p.update(TICK);
             game.repaint();
             Thread.sleep(Math.round(TICK * 1000));
 
@@ -72,10 +70,6 @@ public class RallyGame extends JPanel {
             }
 
         }
-    }
-    
-    public void setPhysicsSimulation(PhysicsSimulation p) {
-    	this.p = p;
     }
 
 }

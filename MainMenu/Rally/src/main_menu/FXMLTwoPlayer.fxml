@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<StackPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main_menu.FXMLTwoPlayerController">
+    <stylesheets>
+   	 <URL value="@/styles/master.css" />
+    </stylesheets>   
+   <children>
+      <Button fx:id="btnReturn" mnemonicParsing="false" onAction="#handleReturn" prefHeight="40.0" prefWidth="120.0" text="Back" />
+      <SwingNode fx:id="sw" />
+   </children>
+</StackPane>

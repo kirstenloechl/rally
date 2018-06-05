@@ -15,10 +15,6 @@
    <bottom>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnOnePlayer" alignment="CENTER" mnemonicParsing="false" onAction="#handleOnePlayer" prefHeight="50.0" prefWidth="200.0" text="One Player">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
             <Button fx:id="btnTwoPlayer" mnemonicParsing="false" onAction="#handleTwoPlayer" prefHeight="50.0" prefWidth="200.0" text="Two Player">
                <cursor>
                   <Cursor fx:constant="HAND" />
