@@ -17,9 +17,9 @@ public class TestPhysicsSimulation {
         // It is not possible for them to not run, run once, or run n - 1 times.
         // As such, we have only one test case for the loops in this method.
 
-        PhysicsSimulation p = new PhysicsSimulation(1.0/60.0, 1000, 600, 20);
+        PhysicsSimulation p = new PhysicsSimulation(1000, 600, 20);
 
-        p.update();
+        p.update(1.0/60.0);
 
     }
 

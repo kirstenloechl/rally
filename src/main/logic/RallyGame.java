@@ -21,17 +21,17 @@ public class RallyGame extends JPanel {
         Graphics2D g2d = (Graphics2D) g;
 
         for(PhysicsObject o: p.getBalls()) {
-            g2d.setPaint(o.getColor());
+
             g2d.fill(o.getShape());
         }
 
         for(PhysicsObject o: p.getWalls()) {
-            g2d.setPaint(o.getColor());
+
             g2d.fill(o.getShape());
         }
 
         for(PhysicsObject o: p.getPlayers()) {
-            g2d.setPaint(o.getColor());
+
             g2d.fill(o.getShape());
         }
 
@@ -43,7 +43,7 @@ public class RallyGame extends JPanel {
     public static void main(String[] args) throws InterruptedException {
 
         JFrame frame = new JFrame("logic.RallyGame");
-        PhysicsSimulation p = new PhysicsSimulation(TICK, WIDTH, HEIGHT, BORDER);
+        PhysicsSimulation p = new PhysicsSimulation(WIDTH, HEIGHT, BORDER);
         RallyGame game = new RallyGame();
         game.p = p;
 
@@ -59,7 +59,7 @@ public class RallyGame extends JPanel {
 
         while(loop) {
 
-            p.update();
+            p.update(TICK);
             game.repaint();
             Thread.sleep(Math.round(TICK * 1000));
 

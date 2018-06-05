@@ -3,7 +3,7 @@ package logic;
 import java.util.List;
 import java.util.ArrayList;
 
-import java.awt.Color;
+import javafx.scene.paint.Color;
 import java.awt.event.KeyEvent;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
@@ -26,9 +26,8 @@ public class PhysicsSimulation {
     private static final String TEAMONE = "TEAMONE";
     private static final String TEAMTWO = "TEAMTWO";
 
-    public PhysicsSimulation(double tick, int width, int height, int border) {
+    public PhysicsSimulation(int width, int height, int border) {
 
-        this.tick = tick;
         this.balls = new ArrayList<>();
         this.walls = new ArrayList<>();
         this.players = new ArrayList<>();
@@ -98,7 +97,7 @@ public class PhysicsSimulation {
         }
     }
 
-    public void update() {
+    public void update(double tick) {
 
         for(PhysicsObject b: balls) {
             b.update(tick);

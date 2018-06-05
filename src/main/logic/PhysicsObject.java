@@ -1,6 +1,6 @@
 package logic;
 
-import java.awt.Color;
+import javafx.scene.paint.Color;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RectangularShape;
 
