@@ -1,3 +1,0 @@
-1. As a game player, I want a one-player mode so that I can play even if I’m the only one online.
-2. As a game player, I want a two-player mode so that I can play against my friends.
-3. As a game player, I want a leaderboard of high scores so that I can have goals to try to reach as I play.

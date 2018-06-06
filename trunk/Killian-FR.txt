@@ -1,7 +1,0 @@
-﻿The game shall have a single player mode with an AI opponent.
-
-
-The game shall have unlockable themes and levels that can be earned by playing the game.
-
-
-The game shall have different modes that require unique strategies.
