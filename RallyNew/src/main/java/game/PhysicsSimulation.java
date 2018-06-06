@@ -10,7 +10,6 @@ import java.awt.geom.Rectangle2D;
 
 public class PhysicsSimulation {
 
-    private double tick;
     private double width;
     private double height;
 

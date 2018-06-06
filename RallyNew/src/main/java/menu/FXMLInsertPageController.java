@@ -25,19 +25,19 @@ public class FXMLInsertPageController {
 	@FXML
 	Button btnReturn;
     @FXML
-    private Button btnLogin;
-	@FXML
-    private TextField username_text;
+    private TextField usernameText;
     @FXML
-    private TextField password_text;
+    private TextField passwordText;
     @FXML
-    private Label invalid_label;
+    private Label invalidLabel;
 
-    static final int LOGIN_WIDTH = 600, LOGIN_HEIGHT = 400;
-	static final int MENU_WIDTH = 1024, MENU_HEIGHT = 664;
+    static final int LOGIN_WIDTH = 600;
+    static final int LOGIN_HEIGHT = 400;
+	static final int MENU_WIDTH = 1024;
+	static final int MENU_HEIGHT = 664;
     
     @FXML
-    public void handleReturn(ActionEvent event) throws Exception {
+    public void handleReturn(ActionEvent event) throws IOException {
 
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		
@@ -55,74 +55,64 @@ public class FXMLInsertPageController {
     @FXML
     private void handleLogin(ActionEvent event) throws IOException {
     	
-    	if (userExists(username_text.getText())) {
-    		System.out.println("INVALID USERNAME");
-            username_text.clear();
-            password_text.clear();
+    	if (userExists(usernameText.getText())) {
+            usernameText.clear();
+            passwordText.clear();
             
-            invalid_label.setVisible(false);
-            invalid_label.setLayoutX(100);
-            invalid_label.setText("Username already exists");
-            
-    	}
-    	else if(username_text.getText().isEmpty() || password_text.getText().isEmpty()) {
-    		System.out.println("NO USERNAME || PASSWORD SPECIFIED");
-    		username_text.clear();
-            password_text.clear();
-
-            invalid_label.setVisible(false);
-            invalid_label.setLayoutX(50);
-            invalid_label.setText("Please provide a username and password");
-
-           
-            
+            invalidLabel.setVisible(false);
+            invalidLabel.setLayoutX(100);
+            invalidLabel.setText("Username already exists");
             
     	}
+    	else if(usernameText.getText().isEmpty() || passwordText.getText().isEmpty()) {
+    		usernameText.clear();
+            passwordText.clear();
+
+            invalidLabel.setVisible(false);
+            invalidLabel.setLayoutX(50);
+            invalidLabel.setText("Please provide a username and password");
+    	}
+
     	else {
-    		 String query = "INSERT INTO logins (username, password) VALUES (" + "'" + username_text.getText() + 
-    	                "'," + "'" + password_text.getText() + "');";
-    	   
-    	        
-    	     System.out.println("Inserting\n" + query);
+    		 String query = "INSERT INTO logins (username, password) VALUES (" + "'" + usernameText.getText() +
+    	                "'," + "'" + passwordText.getText() + "');";
+
     	     insertStatement(query);
     	      
-    	     Parent date_page_parent = FXMLLoader.load(getClass().getResource("/fxml/FXMLMainMenu.fxml"));
-    	     Scene date_page_scene = new Scene(date_page_parent, MENU_WIDTH, MENU_HEIGHT);
-    	     Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	     Parent datePageParent = FXMLLoader.load(getClass().getResource("/fxml/FXMLMainMenu.fxml"));
+    	     Scene datePageScene = new Scene(datePageParent, MENU_WIDTH, MENU_HEIGHT);
+    	     Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     	     
     	     Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-    	     app_stage.setX((screenBounds.getWidth() - MENU_WIDTH) / 2); 
-    		 app_stage.setY((screenBounds.getHeight() - MENU_HEIGHT) / 2);  
+    	     appStage.setX((screenBounds.getWidth() - MENU_WIDTH) / 2);
+    		 appStage.setY((screenBounds.getHeight() - MENU_HEIGHT) / 2);
     	     
-    	     app_stage.hide(); //optional
-    	     app_stage.setScene(date_page_scene);
-    	     app_stage.show();     
+    	     appStage.hide(); //optional
+    	     appStage.setScene(datePageScene);
+    	     appStage.show();
     	} 
-    	invalid_label.setVisible(true);
+    	invalidLabel.setVisible(true);
     }
      
-    private void insertStatement(String insert_query){
+    private void insertStatement(String insertQuery){
     	Connection c = null;
     	Statement stmt = null;
     	try {
     		Class.forName("org.sqlite.JDBC");
     		c = DriverManager.getConnection("jdbc:sqlite:database.db");
     		c.setAutoCommit(false);
-    		System.out.println("Opened database successfully");
-    		stmt = c.createStatement(); 
-    		System.out.println("Our query was: " + insert_query);
-    		stmt.executeUpdate(insert_query);
+    		stmt = c.createStatement();
+    		stmt.executeUpdate(insertQuery);
     		stmt.close();
     		c.commit();
     		c.close();
     	}catch ( Exception e ) {
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);  
         }    
     }
     
     private boolean userExists(String username) {
-    	boolean un_exists = false;
+    	boolean unExists = false;
     	String query = "SELECT * from logins WHERE username = ?";
 		Connection c = null;
 		try {
@@ -133,15 +123,13 @@ public class FXMLInsertPageController {
 		     ps.setString(1, username);
 		     ResultSet rs = ps.executeQuery();
 		     while (rs.next()) {
-			     System.out.println("Found " + rs.getString(1) + ".");
-			     un_exists = true;
+			     unExists = true;
 		     }		     
 		     c.commit();
 		     c.close();
 		}catch ( Exception e ) {
-			System.err.println( e.getClass().getName() + ": " + e.getMessage() );
 		    System.exit(0);  
 		}  
-		return un_exists;
+		return unExists;
 	}   
 }

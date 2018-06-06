@@ -18,7 +18,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -28,19 +27,17 @@ public class FXMLDocumentController implements Initializable {
 	Button btnReturn;
 	@FXML
 	Button btnLogin;
-    @FXML
-    private Label label;
-    @FXML
-    private AnchorPane home_page;
     @FXML 
-    private TextField username_box;
+    private TextField usernameBox;
     @FXML 
-    private TextField password_box;
+    private TextField passwordBox;
     @FXML
-    private Label invalid_label;
+    private Label invalidLabel;
     
-	static final int MENU_WIDTH = 1024, MENU_HEIGHT = 664;
-    static final int LOGIN_WIDTH = 600, LOGIN_HEIGHT = 400;
+	static final int MENU_WIDTH = 1024;
+	static final int MENU_HEIGHT = 664;
+    static final int LOGIN_WIDTH = 600;
+    static final int LOGIN_HEIGHT = 400;
  
 	@FXML
     public void handleReturn(ActionEvent event) throws Exception {
@@ -61,65 +58,59 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleLogin(ActionEvent event) throws IOException {
     	if (!isValidCredentials()) {
-    		username_box.clear();
-            password_box.clear();
-            invalid_label.setText("Sorry, invalid credentials."); 	
+    		usernameBox.clear();
+            passwordBox.clear();
     	}
     	else {
-            System.out.println("DO IT");
-            Parent home_page_parent =  FXMLLoader.load(getClass().getResource("/fxml/FXMLMainMenu.fxml"));
-            Scene home_page_scene = new Scene(home_page_parent, MENU_WIDTH, MENU_HEIGHT);
-            Stage app_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            Parent homePageParent =  FXMLLoader.load(getClass().getResource("/fxml/FXMLMainMenu.fxml"));
+            Scene homePageScene = new Scene(homePageParent, MENU_WIDTH, MENU_HEIGHT);
+            Stage appStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 
             Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-       	    app_stage.setX((screenBounds.getWidth() - MENU_WIDTH) / 2); 
-       	    app_stage.setY((screenBounds.getHeight() - MENU_HEIGHT) / 2);  
-            app_stage.hide();
-            app_stage.setScene(home_page_scene);
-            app_stage.show();  
+       	    appStage.setX((screenBounds.getWidth() - MENU_WIDTH) / 2);
+       	    appStage.setY((screenBounds.getHeight() - MENU_HEIGHT) / 2);
+            appStage.hide();
+            appStage.setScene(homePageScene);
+            appStage.show();
     	}
     }
     
     private boolean isValidCredentials()
     {
-        boolean let_in = false;
+        boolean letIn = false;
         Connection c = null;
         Statement stmt = null;
+
         try {
         	Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:database.db");
             c.setAutoCommit(false);
-            
-            System.out.println("Opened database successfully");
+
             stmt = c.createStatement();
             
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM logins WHERE username= " + "'" + username_box.getText() + "'" 
-            + " AND password= " + "'" + password_box.getText() + "'");
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM logins WHERE username= " + "'" + usernameBox.getText() + "'"
+            + " AND password= " + "'" + passwordBox.getText() + "'");
             
             while ( rs.next() ) {
-                 if (rs.getString("username") != null && rs.getString("password") != null) { 
-                     String  username = rs.getString("username");
-                     System.out.println( "username = " + username );
-                     String password = rs.getString("password");
-                     System.out.println("password = " + password);
-                     let_in = true;
+                 if (rs.getString("username") != null && rs.getString("password") != null) {
+                     letIn = true;
                  }  
             }
             rs.close();
             stmt.close();
             c.close();
             } catch ( Exception e ) {
-                System.err.println( e.getClass().getName() + ": " + e.getMessage() );
                 System.exit(0);
             }
-            System.out.println("Operation done successfully");
-            return let_in;
+            return letIn;
         
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+
+	    // Unused
+
+    }
     
 }

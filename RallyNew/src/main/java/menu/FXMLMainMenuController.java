@@ -1,6 +1,7 @@
 package menu;
 
 import java.awt.geom.RectangularShape;
+import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
 
@@ -25,17 +26,24 @@ import game.PhysicsSimulation;
 
 public class FXMLMainMenuController {
 	
-	private transient PhysicsSimulation p;
-	static final int MENU_WIDTH = 1024, MENU_HEIGHT = 664;
+	private  PhysicsSimulation p;
+	static final int MENU_WIDTH = 1024;
+	static final int MENU_HEIGHT = 664;
 	private static final int WIDTH = 984;
     private static final int HEIGHT = 624;
     private static final int BORDER = 20;
 	
 	@FXML
-	Button btnTwoPlayer, btnLeaderboard, btnSettings, btnExit;
+	Button btnTwoPlayer;
+	@FXML
+	Button btnLeaderboard;
+	@FXML
+	Button btnSettings;
+	@FXML
+	Button btnExit;
 	
 	@FXML
-	protected void handleTwoPlayer(ActionEvent event) throws Exception {
+	protected void handleTwoPlayer(ActionEvent event) throws IOException {
 		launchGame();
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.hide();
@@ -43,7 +51,7 @@ public class FXMLMainMenuController {
 	}
 	
 	@FXML
-	protected void handleSettings(ActionEvent event) throws Exception {
+	protected void handleSettings(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLSettings.fxml"));
 		Scene main = new Scene(root, MENU_WIDTH, MENU_HEIGHT); 	
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -58,7 +66,7 @@ public class FXMLMainMenuController {
 	}
 	
 	@FXML
-	protected void handleLeaderboard(ActionEvent event) throws Exception {
+	protected void handleLeaderboard(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLLeaderboard.fxml"));
 		Scene main = new Scene(root, MENU_WIDTH, MENU_HEIGHT); 	
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -73,7 +81,7 @@ public class FXMLMainMenuController {
 	}
 	
 	@FXML
-	protected void handleExit(ActionEvent event) throws Exception {
+	protected void handleExit(ActionEvent event) throws IOException {
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.close();
 		
@@ -109,15 +117,15 @@ public class FXMLMainMenuController {
     	        try {
     	        	URL url = Paths.get("./src/main_menu/FXMLMainMenu.fxml").toUri().toURL();
     	        	root =  FXMLLoader.load(url);
-    	            Scene home_page_scene = new Scene(root, MENU_WIDTH, MENU_HEIGHT);
-    	            Stage app_stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+    	            Scene homePageScene = new Scene(root, MENU_WIDTH, MENU_HEIGHT);
+    	            Stage appStage = (Stage) ((Node)e.getSource()).getScene().getWindow();
     	                
     	            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-    	       	    app_stage.setX((screenBounds.getWidth() - MENU_WIDTH) / 2); 
-    	       	    app_stage.setY((screenBounds.getHeight() - MENU_HEIGHT) / 2);  
-    	            app_stage.hide();
-    	            app_stage.setScene(home_page_scene);
-    	            app_stage.show();  
+    	       	    appStage.setX((screenBounds.getWidth() - MENU_WIDTH) / 2);
+    	       	    appStage.setY((screenBounds.getHeight() - MENU_HEIGHT) / 2);
+    	            appStage.hide();
+    	            appStage.setScene(homePageScene);
+    	            appStage.show();
     	            
         	        }
         	        catch (Exception ex) {

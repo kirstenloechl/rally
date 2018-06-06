@@ -1,5 +1,6 @@
 package menu;
 
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,13 +14,14 @@ import javafx.stage.Stage;
 
 public class FXMLLeaderBoardController {
 
-	static final int MENU_WIDTH = 1024, MENU_HEIGHT = 664;
+	static final int MENU_WIDTH = 1024;
+	static final int MENU_HEIGHT = 664;
 	
 	@FXML
 	Button btnReturn;
 	
 	@FXML
-	protected void handleReturn(ActionEvent event) throws Exception {
+	protected void handleReturn(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLMainMenu.fxml"));
 		Scene main = new Scene(root, MENU_WIDTH, MENU_HEIGHT); 	
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

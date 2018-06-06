@@ -16,20 +16,12 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import game.PhysicsSimulation;
-import game.RallyGame2;
 
 public class FXMLTwoPlayerController implements Initializable {
 
-	 static final int MENU_WIDTH = 1024, MENU_HEIGHT = 664;
-	
-	 private transient PhysicsSimulation p;
+	 static final int MENU_WIDTH = 1024;
+	 static final int MENU_HEIGHT = 664;
 
-	 private static final double FPS = 100;
-	 private static final double TICK = 1.0 / FPS;
-	 private static final int WIDTH = 1000;
-	 private static final int HEIGHT = 600;
-	 private static final int BORDER = 20;
 	
 	@FXML
 	Button btnReturn;
@@ -58,8 +50,9 @@ public class FXMLTwoPlayerController implements Initializable {
 	
 	@Override
     public void initialize(URL url, ResourceBundle rb) {
-		System.out.println("ENTERED INIT");
-        RallyGame2 rg = new RallyGame2();
+
+		// Unneeded
+
     }    
 
 	

@@ -18,11 +18,11 @@
          <font>
             <Font size="24.0" />
          </font></Label>
-      <TextField fx:id="username_text" layoutX="86.0" layoutY="86.0" />
-      <TextField fx:id="password_text" layoutX="86.0" layoutY="138.0" />
+      <TextField fx:id="usernameText" layoutX="86.0" layoutY="86.0" />
+      <TextField fx:id="passwordText" layoutX="86.0" layoutY="138.0" />
       <Label fx:id="label1" layoutX="22.0" layoutY="90.0" minHeight="16" minWidth="69" text="Username" />
       <Label fx:id="label11" layoutX="22.0" layoutY="142.0" minHeight="16" minWidth="69" text="Password" />
-      <Label fx:id="invalid_label" layoutX="90.0" layoutY="171.0" textFill="#ee0b0b" />
+      <Label fx:id="invalidLabel" layoutX="90.0" layoutY="171.0" textFill="#ee0b0b" />
       <Button fx:id="btnReturn" layoutX="110.0" layoutY="245.0" onAction="#handleReturn" prefHeight="30.0" prefWidth="100.0" text="Back" />
    </children>
 </AnchorPane>

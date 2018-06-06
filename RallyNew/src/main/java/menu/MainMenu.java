@@ -11,7 +11,8 @@ import javafx.scene.Parent;
 
 public class MainMenu extends Application{
 
-    static final int LOGIN_WIDTH = 600, LOGIN_HEIGHT = 400;
+    static final int LOGIN_WIDTH = 600;
+    static final int LOGIN_HEIGHT = 400;
 
 	
 	public static void main(String[] args) {
@@ -22,13 +23,13 @@ public class MainMenu extends Application{
 		stage.setTitle("Rally");
 		stage.getIcons().add(new Image("/images/ball_icon.png"));
 		Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLLogin.fxml"));
-        Scene scene_login = new Scene(root, LOGIN_WIDTH, LOGIN_HEIGHT);
+        Scene sceneLogin = new Scene(root, LOGIN_WIDTH, LOGIN_HEIGHT);
         
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
 		stage.setX((screenBounds.getWidth() - LOGIN_WIDTH) / 2); 
 		stage.setY((screenBounds.getHeight() - LOGIN_HEIGHT) / 2);  
         
-        stage.setScene(scene_login);
+        stage.setScene(sceneLogin);
         stage.show();
 	}
 
