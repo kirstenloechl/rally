@@ -1,3 +1,0 @@
-1. The system shall keep track of each player’s score throughout the game.
-2. The system shall determine a winner based on which player has the highest score at the end of the game.
-3. The system shall play a specific noise every time the ball is hit.

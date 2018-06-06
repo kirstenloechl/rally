@@ -1,3 +1,0 @@
-1. The system shall provide a one-player mode.
-2. The system shall provide a two-player mode.
-3. The system shall display a leaderboard with high scores.

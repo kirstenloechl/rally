@@ -1,5 +1,0 @@
-As a beginner player, I want a control layout screen, so that I am able to control the player.
-
-As a player, I want a description of each power-up, so that I know what it does and how to use it.
-
-As a developer, I want to be able to restart the match at any time, so that I don’t have to create a new game every time while testing. 
