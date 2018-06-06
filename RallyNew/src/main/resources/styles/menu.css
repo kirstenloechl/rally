@@ -1,0 +1,29 @@
+@import url("master.css");
+
+#mainMenu {
+   -fx-background-image: url('/images/rally.png');
+   -fx-background-repeat: stretch;
+   -fx-background-size: cover;   
+   -fx-background-position: center center;
+	
+}
+#btnExit {
+	 -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #cc0000 0%, #b30000 100%),
+        #cc0000,
+        #ff1a1a,
+        radial-gradient(center 50% 50%, radius 100%, #ff1a1a,  #ff0000);
+}
+#btnExit:hover {
+	-fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #666666 0%, #595959 100%),
+         #666666,
+        #404040,
+        radial-gradient(center 50% 50%, radius 100%, #404040,  #333333);
+   -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #404040 0%, #333333 100%),
+         #404040,
+        #666666,
+        radial-gradient(center 50% 50%, radius 100%, #666666,  #595959);
+
+}
