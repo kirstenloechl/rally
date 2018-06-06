@@ -132,7 +132,7 @@ public class PhysicsSimulation {
                     teamOneScore++;
                     return;
                 } else {
-                    Sound.playSound("/images/Bounce.wav");
+                    PhysicsSound.playSound("/sounds/Bounce.wav");
                 }
             }
         }
@@ -146,7 +146,7 @@ public class PhysicsSimulation {
             for (PhysicsObject b : balls) {
                 id = collide(b, p);
                 if(id != null) {
-                    Sound.playSound("/images/BounceLow.wav");
+                    PhysicsSound.playSound("/sounds/BounceLow.wav");
                 }
             }
         }
