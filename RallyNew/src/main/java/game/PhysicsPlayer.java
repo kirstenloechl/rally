@@ -1,12 +1,14 @@
 package game;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
-public class PhysicsPlayer extends PhysicsObject implements KeyListener {
 
-    private int left;
-    private int right;
+
+public class PhysicsPlayer extends PhysicsObject {
+
+    private KeyCode left;
+    private KeyCode right;
 
     private double minPosition;
     private double maxPosition;
@@ -16,7 +18,7 @@ public class PhysicsPlayer extends PhysicsObject implements KeyListener {
     private boolean heldLeft;
     private boolean heldRight;
 
-    public PhysicsPlayer(PhysicsObject o, double minPosition, double maxPosition, double maxVelocity, int left, int right) {
+    public PhysicsPlayer(PhysicsObject o, double minPosition, double maxPosition, double maxVelocity, KeyCode left, KeyCode right) {
 
         super(o);
 
@@ -40,11 +42,11 @@ public class PhysicsPlayer extends PhysicsObject implements KeyListener {
 
     public void keyPressed(KeyEvent e) {
 
-        if (e.getKeyCode() == this.left) {
+        if (e.getCode() == this.left) {
             heldLeft = true;
         }
 
-        if (e.getKeyCode() == this.right) {
+        if (e.getCode() == this.right) {
             heldRight = true;
         }
 
@@ -61,11 +63,11 @@ public class PhysicsPlayer extends PhysicsObject implements KeyListener {
 
     public void keyReleased(KeyEvent e) {
 
-        if (e.getKeyCode() == this.left) {
+        if (e.getCode() == this.left) {
             heldLeft = false;
         }
 
-        if (e.getKeyCode() == this.right) {
+        if (e.getCode() == this.right) {
             heldRight = false;
         }
 

@@ -1,0 +1,7 @@
+organization=cwscarbo-github
+projectKey=Rally:Rally
+serverUrl=https://sonarcloud.io
+serverVersion=7.2.0.12516
+dashboardUrl=https://sonarcloud.io/dashboard/index/Rally:Rally
+ceTaskId=AWPTJ5I3CPImwYt77Mll
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWPTJ5I3CPImwYt77Mll

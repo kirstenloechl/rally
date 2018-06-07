@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import javafx.scene.paint.Color;
-import java.awt.event.KeyEvent;
+import javafx.scene.input.KeyCode;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 
@@ -58,8 +58,8 @@ public class PhysicsSimulation {
         walls.add(teamTwo);
         walls.add(centerWall);
 
-        PhysicsPlayer playerOne = new PhysicsPlayer(new PhysicsObject(TEAMONE, new Rectangle2D.Double(), new Vector2D(width / 15, border), new Vector2D((width - border) / 4, height - 2 * border), 0, Color.RED), (border), (width - border) / 2, (width / 5), KeyEvent.VK_A, KeyEvent.VK_D);
-        PhysicsPlayer playerTwo = new PhysicsPlayer(new PhysicsObject(TEAMTWO, new Rectangle2D.Double(), new Vector2D(width / 15, border), new Vector2D((width - border) * 3 / 4, height - 2 * border), 0, Color.BLUE), (width + border) / 2, (width - border), (width / 5), KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT);
+        PhysicsPlayer playerOne = new PhysicsPlayer(new PhysicsObject(TEAMONE, new Rectangle2D.Double(), new Vector2D(width / 15, border), new Vector2D((width - border) / 4, height - 2 * border), 0, Color.RED), (border), (width - border) / 2, (width / 5), KeyCode.A, KeyCode.D);
+        PhysicsPlayer playerTwo = new PhysicsPlayer(new PhysicsObject(TEAMTWO, new Rectangle2D.Double(), new Vector2D(width / 15, border), new Vector2D((width - border) * 3 / 4, height - 2 * border), 0, Color.BLUE), (width + border) / 2, (width - border), (width / 5), KeyCode.LEFT, KeyCode.RIGHT);
 
         players.add(playerOne); // Ready Player One
         players.add(playerTwo);
@@ -81,9 +81,14 @@ public class PhysicsSimulation {
     public int getTeamOneScore() {
         return teamOneScore;
     }
-
+    
     public int getTeamTwoScore() {
         return teamTwoScore;
+    }
+    
+    public void resetScores() {
+    	teamOneScore = 0;
+    	teamTwoScore = 0;
     }
 
     public void reset() {
@@ -131,7 +136,7 @@ public class PhysicsSimulation {
                     teamOneScore++;
                     return;
                 } else {
-                    PhysicsSound.playSound("/sounds/Bounce.wav");
+                   // PhysicsSound.playSound("/sounds/Bounce.wav");
                 }
             }
         }
@@ -145,7 +150,7 @@ public class PhysicsSimulation {
             for (PhysicsObject b : balls) {
                 id = collide(b, p);
                 if(id != null) {
-                    PhysicsSound.playSound("/sounds/BounceLow.wav");
+                   // PhysicsSound.playSound("/sounds/BounceLow.wav");
                 }
             }
         }

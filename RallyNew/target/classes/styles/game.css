@@ -1,0 +1,6 @@
+@import url("master.css");
+
+.label {
+	-fx-font-size: 55;
+	-fx-font-weight: bold;
+}

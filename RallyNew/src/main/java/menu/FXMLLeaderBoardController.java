@@ -1,4 +1,4 @@
-package main_menu;
+package menu;
 
 import java.io.IOException;
 import java.sql.Connection;
