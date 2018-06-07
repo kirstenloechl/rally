@@ -22,7 +22,6 @@ public class FXMLTwoPlayerController implements Initializable {
 	 static final int MENU_WIDTH = 1024;
 	 static final int MENU_HEIGHT = 664;
 
-	
 	@FXML
 	Button btnReturn;
 	
@@ -35,14 +34,14 @@ public class FXMLTwoPlayerController implements Initializable {
 	@FXML
 	protected void handleReturn(ActionEvent event) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLMainMenu.fxml"));
-		Scene main = new Scene(root, MENU_WIDTH, MENU_HEIGHT); 	
+		Scene main = new Scene(root, MENU_WIDTH, MENU_HEIGHT);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setTitle("Rally - Main Menu");
 		
 		
 		Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-	    stage.setX((screenBounds.getWidth() - MENU_WIDTH) / 2); 
-		stage.setY((screenBounds.getHeight() - MENU_HEIGHT) / 2);  
+	    stage.setX((screenBounds.getWidth() - MENU_WIDTH) / 2);
+		stage.setY((screenBounds.getHeight() - MENU_HEIGHT) / 2);
 		
 		stage.setScene(main);
 		stage.show();

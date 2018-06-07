@@ -44,7 +44,8 @@ public class FXMLMainMenuController {
 	@FXML
 	Button btnExit;
 	Button playAgain;
-	Label scoreRed, scoreBlue;
+	Label scoreRed;
+	Label scoreBlue;
 	
 	@FXML
 	protected void handleTwoPlayer(ActionEvent event) throws IOException {
@@ -56,14 +57,15 @@ public class FXMLMainMenuController {
 	
 	@FXML
 	protected void handleSettings(ActionEvent event) throws IOException {
+
 		Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLSettings.fxml"));
-		Scene main = new Scene(root, MENU_WIDTH, MENU_HEIGHT); 	
+		Scene main = new Scene(root, MENU_WIDTH, MENU_HEIGHT);
+		boolean b = true;
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		
 		Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-	    stage.setX((screenBounds.getWidth() - MENU_WIDTH) / 2); 
-		stage.setY((screenBounds.getHeight() - MENU_HEIGHT) / 2);  
-		
+	    stage.setX((screenBounds.getWidth() - MENU_WIDTH) / 2);
+		stage.setY((screenBounds.getHeight() - MENU_HEIGHT) / 2);
+		while(b) { b = false; }
 		stage.setScene(main);
 		stage.setTitle("Rally - Settings");
 		stage.show();
@@ -82,7 +84,6 @@ public class FXMLMainMenuController {
 		stage.setScene(main);
 		stage.setTitle("Rally - Leaderboard");
 		stage.show();
-		//getLeaderboard(stage);
 	}
 	
 	@FXML
@@ -158,7 +159,7 @@ public class FXMLMainMenuController {
         
         scoreBlue.relocate( 350, 25);
         scoreRed.relocate(600, 25);
-        
+        scene.setRoot(root);
         root.getChildren().addAll(scoreBlue, scoreRed);
 	}
 	
@@ -166,6 +167,7 @@ public class FXMLMainMenuController {
 		Button back = new Button("Menu");
         back.relocate(50, 25);
         root.getChildren().add(back);
+		scene.setRoot(root);
         back.setOnAction(new EventHandler<ActionEvent>() {
         	public void handle(ActionEvent e) {
         		Parent root;

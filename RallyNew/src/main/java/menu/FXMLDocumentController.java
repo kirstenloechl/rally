@@ -41,16 +41,15 @@ public class FXMLDocumentController implements Initializable {
  
 	@FXML
     public void handleReturn(ActionEvent event) throws Exception {
-    	
+
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		
 		Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-		stage.setX((screenBounds.getWidth() - LOGIN_WIDTH) / 2); 
-		stage.setY((screenBounds.getHeight() - LOGIN_HEIGHT) / 2);  
-		 		
+        boolean b = true;
+		stage.setX((screenBounds.getWidth() - LOGIN_WIDTH) / 2);
+		stage.setY((screenBounds.getHeight() - LOGIN_HEIGHT) / 2);
 		Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLLogin.fxml"));
-		Scene main = new Scene(root, LOGIN_WIDTH, LOGIN_HEIGHT); 	 
-		
+        while(b) { b = false; }
+		Scene main = new Scene(root, LOGIN_WIDTH, LOGIN_HEIGHT);
 		stage.setScene(main);
 		stage.show();
     }

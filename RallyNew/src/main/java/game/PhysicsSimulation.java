@@ -135,8 +135,6 @@ public class PhysicsSimulation {
                     reset();
                     teamOneScore++;
                     return;
-                } else {
-                   // PhysicsSound.playSound("/sounds/Bounce.wav");
                 }
             }
         }
@@ -144,14 +142,9 @@ public class PhysicsSimulation {
 
     private void collidePlayers() {
 
-        String id;
-
         for(PhysicsPlayer p: this.players) {
             for (PhysicsObject b : balls) {
-                id = collide(b, p);
-                if(id != null) {
-                   // PhysicsSound.playSound("/sounds/BounceLow.wav");
-                }
+                collide(b, p);
             }
         }
 

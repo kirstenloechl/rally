@@ -15,12 +15,15 @@ public class GameTimer extends AnimationTimer {
 	private PhysicsSimulation p;
 	private GraphicsContext gc;
 	private Canvas canvas;
-	public Label scoreRed, scoreBlue;
+	public Label scoreRed;
+	public Label scoreBlue;
 	public Button playAgain;
 	private static final int WIDTH = 984;
     private static final int HEIGHT = 624;
 	
 	public GameTimer() {
+
+		// Default constructor
 		
 	}
 
@@ -56,17 +59,11 @@ public class GameTimer extends AnimationTimer {
 	    scoreRed.setText(Integer.toString(p.getTeamOneScore()));
 	    
 	    // If either player wins, reset the scores and display the game over options
-	    if (p.getTeamOneScore() == 2) {
-	    	p.resetScores();
-	    	playAgain.setVisible(true);
-	    	this.stop();
-	    }
-	    else if (p.getTeamTwoScore() == 2) {
-	    	p.resetScores();
-	    	playAgain.setVisible(true);
-	       	this.stop();
-	    }
-	     
+	    if (p.getTeamOneScore() == 2 || p.getTeamTwoScore() == 2) {
+			p.resetScores();
+			playAgain.setVisible(true);
+			this.stop();
+		}
 	     
 	}
 	

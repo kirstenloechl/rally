@@ -12,27 +12,20 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.StageStyle;
-import javafx.geometry.*;
-import javafx.scene.text.TextAlignment;
 
 public class FXMLLeaderBoardController {
 
-	static final int WINDOW_HEIGHT = 664, WINDOW_WIDTH = 1024;
+	static final int WINDOW_HEIGHT = 664;
+	static final int WINDOW_WIDTH = 1024;
 	
 	@FXML
 	Button btnReturn;
 	
 	@FXML
-	protected void handleReturn(ActionEvent event) throws Exception {
+	protected void handleReturn(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("FXMLMainMenu.fxml"));
 		Scene main = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT); 	
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -44,11 +37,9 @@ public class FXMLLeaderBoardController {
 	
 	@FXML
 	protected void getLeaderboard(Stage stage) {
-		// pane = FXMLLoader.load(getClass().getResource("FXMLLeaderboard.fxml"));
 	    Connection c = null;
 	    Statement stmt = null;
 	    int i = 1;
-	    int x = 10;
 	    int y = 10;
 	    try {
 	      Class.forName("org.sqlite.JDBC");
@@ -63,9 +54,10 @@ public class FXMLLeaderBoardController {
 	    	  Text t = new Text();
 	    	  String user = rs.getString("username");
 	    	  String score = Integer.toString(rs.getInt("highscore"));
-	    	  String done = String.format("%-33s%d%-3s%-20s%4s\n"," ",i++,".",user,score);
+	    	  String done = String.format("%-33s%d%-3s%-20s%4s%n"," ",i++,".",user,score);
 	    	  t.setText(done);
-	    	  t.setY(y+=100);
+	    	  y+=100;
+	    	  t.setY(y);
 	    	  t.setStyle("-fx-font: 36 arial;");
 	    	  pane.getChildren().add(t);
 
@@ -78,7 +70,6 @@ public class FXMLLeaderBoardController {
     	  stage.show();
 		}
 		catch (Exception e) {
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);  
 		}
 	}
