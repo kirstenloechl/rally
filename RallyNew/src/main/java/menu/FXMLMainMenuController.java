@@ -35,8 +35,6 @@ public class FXMLMainMenuController {
 	private static final int WIDTH = 984;
     private static final int HEIGHT = 624;
     private static final int BORDER = 20;
-    public String playerOne;
-    public String playerTwo;
 	
 	@FXML
 	Button btnTwoPlayer;
@@ -150,9 +148,9 @@ public class FXMLMainMenuController {
         gt.setPhysics(p);
         gt.setGraphicsContext(gc);
         gt.updateNanoTime();
-        gt.scoreRed = scoreRed;
-        gt.scoreBlue = scoreBlue;
-        gt.playAgain = playAgain;
+        gt.setScoreRed(scoreRed);
+        gt.setScoreBlue(scoreBlue);
+        gt.setPlayAgain(playAgain);
      
         gt.start();
          
@@ -195,7 +193,9 @@ public class FXMLMainMenuController {
     	            
         	        }
         	        catch (Exception ex) {
-        	            ex.printStackTrace();
+
+    	                // Unneeded
+
         	        }
         		}
         });

@@ -17,9 +17,9 @@ public class GameTimer extends AnimationTimer {
 	private PhysicsSimulation p;
 	private GraphicsContext gc;
 	private Canvas canvas;
-	public Label scoreRed;
-	public Label scoreBlue;
-	public Button playAgain;
+	private Label scoreRed;
+	private Label scoreBlue;
+	private Button playAgain;
 	private static final int WIDTH = 984;
     private static final int HEIGHT = 624;
 	
@@ -37,7 +37,19 @@ public class GameTimer extends AnimationTimer {
 		return singleton;
 	}
 
-	public void handle(long currentNanoTime) {
+	public void setScoreRed(Label scoreRed) {
+	    this.scoreRed = scoreRed;
+    }
+
+    public void setScoreBlue(Label scoreBlue) {
+        this.scoreBlue = scoreBlue;
+    }
+
+    public void setPlayAgain(Button playAgain) {
+	    this.playAgain = playAgain;
+    }
+
+    public void handle(long currentNanoTime) {
 	 		 	
 	    double tick = (currentNanoTime - prevNanoTime) / 1000000000.0;
 	    prevNanoTime = currentNanoTime;
