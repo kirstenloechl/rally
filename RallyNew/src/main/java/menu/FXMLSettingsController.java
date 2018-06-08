@@ -35,7 +35,7 @@ public class FXMLSettingsController {
 		stage.setY((screenBounds.getHeight() - MENU_HEIGHT) / 2);  
 		
 		stage.setScene(main);
-		stage.setTitle("Rally - Main Menu");
+		stage.setTitle("Rally - Menu");
 		stage.show();
 	}
 	
