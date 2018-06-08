@@ -97,7 +97,6 @@ public class FXMLDocumentController implements Initializable {
                 }
             }
         } catch ( Exception e ) {
-        	e.printStackTrace();
         	System.exit(0);
             
         }

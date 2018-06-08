@@ -26,7 +26,7 @@ public class FXMLLeaderBoardController {
 	
 	@FXML
 	protected void handleReturn(ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("FXMLMainMenu.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLMainMenu.fxml"));
 		Scene main = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT); 	
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		
@@ -47,7 +47,7 @@ public class FXMLLeaderBoardController {
 				try (Statement stmt = c.createStatement()){
 					try(ResultSet rs = stmt.executeQuery("SELECT * FROM logins ORDER by highscore DESC LIMIT 5");) {
 						Pane pane = new Pane();
-						Pane newPane = FXMLLoader.load(getClass().getResource("FXMLLeaderboard.fxml"));
+						Pane newPane = FXMLLoader.load(getClass().getResource("/fxml/FXMLLeaderboard.fxml"));
 						pane.getChildren().add(newPane);
 						while (rs.next()) {
 							Text t = new Text();
