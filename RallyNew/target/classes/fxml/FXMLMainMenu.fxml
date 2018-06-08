@@ -20,7 +20,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
             <Button fx:id="btnLeaderboard" mnemonicParsing="false" onAction="#handleLeaderboard" prefHeight="50.0" prefWidth="200.0" text="Leaderboard" />
-            <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#handleSettings" prefHeight="50.0" prefWidth="200.0" text="Settings" />
+            <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#handleSettings" prefHeight="50.0" prefWidth="200.0" text="Controls" />
          </children>
          <padding>
             <Insets left="100.0" right="100.0" />

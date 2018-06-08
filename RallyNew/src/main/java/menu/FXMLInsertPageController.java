@@ -108,26 +108,28 @@ public class FXMLInsertPageController {
     		c.close();
     	}catch ( Exception e ) {
             System.exit(0);  
-        }    
+        }
     }
     
     private boolean userExists(String username) {
     	boolean unExists = false;
     	String query = "SELECT * from logins WHERE username = ?";
-		Connection c = null;
+
 		try {
 		     Class.forName("org.sqlite.JDBC");
-		     c = DriverManager.getConnection("jdbc:sqlite:database.db");
-		     c.setAutoCommit(false);		    		     
-		     final PreparedStatement ps = c.prepareStatement(query);
-		     ps.setString(1, username);
-		     ResultSet rs = ps.executeQuery();
-		     while (rs.next()) {
-			     unExists = true;
-		     }		     
-		     c.commit();
-		     c.close();
-		}catch ( Exception e ) {
+		     try(Connection c = DriverManager.getConnection("jdbc:sqlite:database.db")) {
+				 c.setAutoCommit(false);
+				 try (final PreparedStatement ps = c.prepareStatement(query);) {
+					 ps.setString(1, username);
+					 try (ResultSet rs = ps.executeQuery();) {
+						 while (rs.next()) {
+							 unExists = true;
+						 }
+					 }
+				 }
+				 c.commit();
+			 }
+		} catch ( Exception e ) {
 		    System.exit(0);  
 		}  
 		return unExists;

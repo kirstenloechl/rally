@@ -37,37 +37,36 @@ public class FXMLLeaderBoardController {
 	
 	@FXML
 	protected void getLeaderboard(Stage stage) {
-	    Connection c = null;
-	    Statement stmt = null;
+
 	    int i = 1;
 	    int y = 10;
 	    try {
-	      Class.forName("org.sqlite.JDBC");
-	      c = DriverManager.getConnection("jdbc:sqlite:database.db");
-	      c.setAutoCommit(false);      
-	      stmt = c.createStatement();
-	      ResultSet rs = stmt.executeQuery( "SELECT * FROM logins ORDER by highscore DESC LIMIT 5");
-	      Pane pane = new Pane();
-	      Pane newPane = FXMLLoader.load(getClass().getResource("FXMLLeaderboard.fxml"));
-	      pane.getChildren().add(newPane);
-	      while (rs.next()) {
-	    	  Text t = new Text();
-	    	  String user = rs.getString("username");
-	    	  String score = Integer.toString(rs.getInt("highscore"));
-	    	  String done = String.format("%-33s%d%-3s%-20s%4s%n"," ",i++,".",user,score);
-	    	  t.setText(done);
-	    	  y+=100;
-	    	  t.setY(y);
-	    	  t.setStyle("-fx-font: 36 arial;");
-	    	  pane.getChildren().add(t);
+			Class.forName("org.sqlite.JDBC");
+			try (Connection c = DriverManager.getConnection("jdbc:sqlite:database.db")) {
+				c.setAutoCommit(false);
+				try (Statement stmt = c.createStatement()){
+					try(ResultSet rs = stmt.executeQuery("SELECT * FROM logins ORDER by highscore DESC LIMIT 5");) {
+						Pane pane = new Pane();
+						Pane newPane = FXMLLoader.load(getClass().getResource("FXMLLeaderboard.fxml"));
+						pane.getChildren().add(newPane);
+						while (rs.next()) {
+							Text t = new Text();
+							String user = rs.getString("username");
+							String score = Integer.toString(rs.getInt("highscore"));
+							String done = String.format("%-33s%d%-3s%-20s%4s%n", " ", i++, ".", user, score);
+							t.setText(done);
+							y += 100;
+							t.setY(y);
+							t.setStyle("-fx-font: 36 arial;");
+							pane.getChildren().add(t);
 
-	      }
-	      rs.close();
-	      stmt.close();
-	      c.close();
-	      Scene scene2 = new Scene(pane,WINDOW_WIDTH,WINDOW_HEIGHT);
-	      stage.setScene(scene2);
-    	  stage.show();
+						}
+						Scene scene2 = new Scene(pane, WINDOW_WIDTH, WINDOW_HEIGHT);
+						stage.setScene(scene2);
+						stage.show();
+					}
+				}
+			}
 		}
 		catch (Exception e) {
             System.exit(0);  

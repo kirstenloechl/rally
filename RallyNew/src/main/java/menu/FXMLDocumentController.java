@@ -77,32 +77,29 @@ public class FXMLDocumentController implements Initializable {
     private boolean isValidCredentials()
     {
         boolean letIn = false;
-        Connection c = null;
-        Statement stmt = null;
 
         try {
         	Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:database.db");
-            c.setAutoCommit(false);
+            try(Connection c = DriverManager.getConnection("jdbc:sqlite:database.db")) {
+                c.setAutoCommit(false);
 
-            stmt = c.createStatement();
-            
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM logins WHERE username= " + "'" + usernameBox.getText() + "'"
-            + " AND password= " + "'" + passwordBox.getText() + "'");
-            
-            while ( rs.next() ) {
-                 if (rs.getString("username") != null && rs.getString("password") != null) {
-                     letIn = true;
-                 }  
+                try(Statement stmt = c.createStatement()) {
+
+                    try(ResultSet rs = stmt.executeQuery("SELECT * FROM logins WHERE username= " + "'" + usernameBox.getText() + "'"
+                            + " AND password= " + "'" + passwordBox.getText() + "'")) {
+
+                        while (rs.next()) {
+                            if (rs.getString("username") != null && rs.getString("password") != null) {
+                                letIn = true;
+                            }
+                        }
+                    }
+                }
             }
-            rs.close();
-            stmt.close();
-            c.close();
-            } catch ( Exception e ) {
-                System.exit(0);
-            }
-            return letIn;
-        
+        } catch ( Exception e ) {
+            System.exit(0);
+        }
+        return letIn;
     }
 
     @Override

@@ -10,6 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 
 public class GameTimer extends AnimationTimer {
+
+	private static GameTimer singleton = null;
 	
 	private long prevNanoTime;
 	private PhysicsSimulation p;
@@ -21,10 +23,18 @@ public class GameTimer extends AnimationTimer {
 	private static final int WIDTH = 984;
     private static final int HEIGHT = 624;
 	
-	public GameTimer() {
+	private GameTimer() {
 
 		// Default constructor
 		
+	}
+
+	public static GameTimer getInstance()
+	{
+		if (singleton == null)
+			singleton = new GameTimer();
+
+		return singleton;
 	}
 
 	public void handle(long currentNanoTime) {

@@ -36,7 +36,7 @@ public class PhysicsSimulation {
 
         PhysicsObject ball = new PhysicsObject(BALL, new Ellipse2D.Double(), new Vector2D(30, 30), new Vector2D(100, 100), 100, Color.WHITE);
         ball.setBounce(0.9);
-        ball.setAcceleration(0, 100);
+        ball.setAcceleration(0, 200);
 
         balls.add(ball);
         reset();
@@ -44,7 +44,7 @@ public class PhysicsSimulation {
         PhysicsObject topWall = new PhysicsObject(FIELD, new Rectangle2D.Double(), new Vector2D(0, 0), new Vector2D(width, border));
         PhysicsObject leftWall = new PhysicsObject(FIELD, new Rectangle2D.Double(), new Vector2D(0, 0), new Vector2D(border, height));
         PhysicsObject rightWall = new PhysicsObject(FIELD, new Rectangle2D.Double(), new Vector2D(width - border, 0), new Vector2D(width, height));
-        PhysicsObject centerWall = new PhysicsObject(FIELD, new Rectangle2D.Double(), new Vector2D((width - border) / 2, (height - border) / 2), new Vector2D((width + border) / 2, height - border));
+        PhysicsObject centerWall = new PhysicsObject(FIELD, new Rectangle2D.Double(), new Vector2D((width - border) / 2, (height - border) * 2 / 3), new Vector2D((width + border) / 2, height - border));
 
         PhysicsObject teamOne = new PhysicsObject(TEAMONE, new Rectangle2D.Double(), new Vector2D(0, height - border), new Vector2D(width/2, height));
         PhysicsObject teamTwo = new PhysicsObject(TEAMTWO, new Rectangle2D.Double(), new Vector2D(width/2, height - border), new Vector2D(width, height));
@@ -58,8 +58,8 @@ public class PhysicsSimulation {
         walls.add(teamTwo);
         walls.add(centerWall);
 
-        PhysicsPlayer playerOne = new PhysicsPlayer(new PhysicsObject(TEAMONE, new Rectangle2D.Double(), new Vector2D(width / 15, border), new Vector2D((width - border) / 4, height - 2 * border), 0, Color.RED), (border), (width - border) / 2, (width / 5), KeyCode.A, KeyCode.D);
-        PhysicsPlayer playerTwo = new PhysicsPlayer(new PhysicsObject(TEAMTWO, new Rectangle2D.Double(), new Vector2D(width / 15, border), new Vector2D((width - border) * 3 / 4, height - 2 * border), 0, Color.BLUE), (width + border) / 2, (width - border), (width / 5), KeyCode.LEFT, KeyCode.RIGHT);
+        PhysicsPlayer playerOne = new PhysicsPlayer(new PhysicsObject(TEAMONE, new Rectangle2D.Double(), new Vector2D(width / 15, 2 * border), new Vector2D((width - border) / 4, height - 2 * border), 0, Color.RED), (border), (width - border) / 2, (width / 3), KeyCode.A, KeyCode.D);
+        PhysicsPlayer playerTwo = new PhysicsPlayer(new PhysicsObject(TEAMTWO, new Rectangle2D.Double(), new Vector2D(width / 15, 2 * border), new Vector2D((width - border) * 3 / 4, height - 2 * border), 0, Color.BLUE), (width + border) / 2, (width - border), (width / 3), KeyCode.LEFT, KeyCode.RIGHT);
 
         players.add(playerOne); // Ready Player One
         players.add(playerTwo);
@@ -96,7 +96,7 @@ public class PhysicsSimulation {
         for(PhysicsObject b: balls) {
 
             b.setPosition(width / 2, height / 4);
-            b.setVelocity(Math.random() * 500 - 250, Math.random() * 500 - 250);
+            b.setVelocity(Math.random() * 1000 - 250, Math.random() * 1000 - 250);
 
         }
     }
@@ -190,7 +190,7 @@ public class PhysicsSimulation {
 
         // Geometric mean of the coefficients of restitution
         double bounce = Math.sqrt(b.getBounce() * o.getBounce());
-        double friction = 0.2;
+        double friction = 0.5;
 
         // Compute normal impulse
         double normalImpulse = -(1 + bounce) * normalVelocity;

@@ -143,7 +143,7 @@ public class FXMLMainMenuController {
         addButtons(scene, root);
 
         // Initialize the global instance of the GameTimer
-        gt = new GameTimer();
+        gt = GameTimer.getInstance();
         gt.setCanvas(canvas);
         gt.setPhysics(p);
         gt.setGraphicsContext(gc);

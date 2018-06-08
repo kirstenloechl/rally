@@ -9,7 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.Parent;
 
-public class MainMenu extends Application{
+public class MainMenu extends Application {
 
     static final int LOGIN_WIDTH = 600;
     static final int LOGIN_HEIGHT = 400;
