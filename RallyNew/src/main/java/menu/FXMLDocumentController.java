@@ -30,7 +30,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML 
     private TextField usernameBox;
     @FXML 
-    private TextField passwordBox;
+    private TextField passwordText;
     @FXML
     private Label invalidLabel;
     
@@ -58,7 +58,7 @@ public class FXMLDocumentController implements Initializable {
     private void handleLogin(ActionEvent event) throws IOException {
     	if (!isValidCredentials()) {
     		usernameBox.clear();
-            passwordBox.clear();
+            passwordText.clear();
     	}
     	else {
             Parent homePageParent =  FXMLLoader.load(getClass().getResource("/fxml/FXMLMainMenu.fxml"));
@@ -86,7 +86,7 @@ public class FXMLDocumentController implements Initializable {
                 try(Statement stmt = c.createStatement()) {
 
                     try(ResultSet rs = stmt.executeQuery("SELECT * FROM logins WHERE username= " + "'" + usernameBox.getText() + "'"
-                            + " AND password= " + "'" + passwordBox.getText() + "'")) {
+                            + " AND password= " + "'" + passwordText.getText() + "'")) {
 
                         while (rs.next()) {
                             if (rs.getString("username") != null && rs.getString("password") != null) {
@@ -97,7 +97,9 @@ public class FXMLDocumentController implements Initializable {
                 }
             }
         } catch ( Exception e ) {
-            System.exit(0);
+        	e.printStackTrace();
+        	System.exit(0);
+            
         }
         return letIn;
     }

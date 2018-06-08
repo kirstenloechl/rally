@@ -85,7 +85,8 @@ public class FXMLMainMenuController {
 		stage.setScene(main);
 		stage.setTitle("Rally - Leaderboard");
 		stage.show();
-		//getLeaderboard(stage);
+		FXMLLeaderBoardController lb = new FXMLLeaderBoardController();
+		lb.getLeaderboard(stage);
 	}
 	
 	@FXML
