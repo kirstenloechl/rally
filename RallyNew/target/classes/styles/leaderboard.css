@@ -27,3 +27,8 @@
         radial-gradient(center 50% 50%, radius 100%, #666666,  #595959);
 
 }
+#title_1 {
+	-fx-font-size: 65px;
+	-fx-alignment: center;
+	-fx-font-weight: bold;
+}

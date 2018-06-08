@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.sql.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
 import javafx.scene.layout.Pane;
@@ -23,6 +25,8 @@ public class FXMLLeaderBoardController {
 	
 	@FXML
 	Button btnReturn;
+	@FXML
+	Label user_1, user_2, user_3, user_4, user_5, score_1, score_2, score_3, score_4, score_5;
 	
 	@FXML
 	protected void handleReturn(ActionEvent event) throws IOException {
@@ -39,7 +43,9 @@ public class FXMLLeaderBoardController {
 	protected void getLeaderboard(Stage stage) {
 
 	    int i = 1;
-	    int y = 10;
+	    int y = 150;
+	    int x1 = 300;
+	    int x2 = 650;
 	    try {
 			Class.forName("org.sqlite.JDBC");
 			try (Connection c = DriverManager.getConnection("jdbc:sqlite:database.db")) {
@@ -50,15 +56,21 @@ public class FXMLLeaderBoardController {
 						Pane newPane = FXMLLoader.load(getClass().getResource("/fxml/FXMLLeaderboard.fxml"));
 						pane.getChildren().add(newPane);
 						while (rs.next()) {
-							Text t = new Text();
+							Text users = new Text();
+							Text scores = new Text();
 							String user = rs.getString("username");
 							String score = Integer.toString(rs.getInt("highscore"));
-							String done = String.format("%-33s%d%-3s%-20s%4s%n", " ", i++, ".", user, score);
-							t.setText(done);
-							y += 100;
-							t.setY(y);
-							t.setStyle("-fx-font: 36 arial;");
-							pane.getChildren().add(t);
+							users.setText(user);
+							scores.setText(score);
+							users.setY(y);
+							scores.setY(y);
+							users.setX(x1);
+							scores.setX(x2);
+							y+=100;
+							users.setStyle("-fx-font: 36 arial;");
+							scores.setStyle("-fx-font: 36 arial;");
+							pane.getChildren().add(users);
+							pane.getChildren().add(scores);
 
 						}
 						Scene scene2 = new Scene(pane, WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -67,9 +79,10 @@ public class FXMLLeaderBoardController {
 					}
 				}
 			}
+			
 		}
 		catch (Exception e) {
             System.exit(0);  
-		}
+		}	    
 	}
 }
