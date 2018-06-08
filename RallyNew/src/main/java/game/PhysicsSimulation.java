@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import javafx.scene.paint.Color;
+import game.Sound;
 import javafx.scene.input.KeyCode;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
@@ -129,10 +130,12 @@ public class PhysicsSimulation {
                     continue;
                 } if(id == TEAMONE) {
                     reset();
+                    Sound.playSound("/RallyNew/src/main/resources/sounds/Bounce.wav");
                     teamTwoScore++;
                     return;
                 } else if (id == TEAMTWO) {
                     reset();
+                    Sound.playSound("/RallyNew/src/main/resources/sounds/Bounce.wav");
                     teamOneScore++;
                     return;
                 }
