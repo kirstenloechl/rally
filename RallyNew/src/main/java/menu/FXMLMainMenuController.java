@@ -47,7 +47,8 @@ public class FXMLMainMenuController {
 	@FXML
 	Button btnExit;
 	Button playAgain;
-	Label scoreRed, scoreBlue;
+	Label scoreRed;
+	Label scoreBlue;
 	
 	@FXML
 	protected void handleTwoPlayer(ActionEvent event) throws IOException {
@@ -165,11 +166,13 @@ public class FXMLMainMenuController {
         
         scoreBlue.relocate( 600, 25);
         scoreRed.relocate(350, 25);
-        
+
+        scene.setRoot(root);
         root.getChildren().addAll(scoreBlue, scoreRed);
 	}
 	
-	private void addButtons(Scene scene, Group root) {	 
+	private void addButtons(Scene scene, Group root) {
+		scene.setRoot(root);
 		Button back = new Button("Menu");
         back.relocate(50, 25);
         root.getChildren().add(back);

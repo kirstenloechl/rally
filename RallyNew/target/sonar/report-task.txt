@@ -3,5 +3,5 @@ projectKey=Rally:Rally
 serverUrl=https://sonarcloud.io
 serverVersion=7.2.0.12953
 dashboardUrl=https://sonarcloud.io/dashboard/index/Rally:Rally
-ceTaskId=AWPczwP5v15GUGDTLIaM
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWPczwP5v15GUGDTLIaM
+ceTaskId=AWPc9CsF6E79xp0Pxzbg
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWPc9CsF6E79xp0Pxzbg
