@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -20,6 +21,8 @@ public class FXMLSettingsController {
 	
 	@FXML
 	Button btnReturn;
+	@FXML
+	BorderPane anchor;
 	
 	@FXML
 	protected void handleReturn(ActionEvent event) throws IOException {
@@ -35,4 +38,6 @@ public class FXMLSettingsController {
 		stage.setTitle("Rally - Main Menu");
 		stage.show();
 	}
+	
+	
 }

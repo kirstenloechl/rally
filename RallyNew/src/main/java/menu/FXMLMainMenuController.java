@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -34,6 +35,8 @@ public class FXMLMainMenuController {
 	private static final int WIDTH = 984;
     private static final int HEIGHT = 624;
     private static final int BORDER = 20;
+    public String playerOne;
+    public String playerTwo;
 	
 	@FXML
 	Button btnTwoPlayer;
@@ -44,8 +47,7 @@ public class FXMLMainMenuController {
 	@FXML
 	Button btnExit;
 	Button playAgain;
-	Label scoreRed;
-	Label scoreBlue;
+	Label scoreRed, scoreBlue;
 	
 	@FXML
 	protected void handleTwoPlayer(ActionEvent event) throws IOException {
@@ -57,17 +59,16 @@ public class FXMLMainMenuController {
 	
 	@FXML
 	protected void handleSettings(ActionEvent event) throws IOException {
-
 		Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLSettings.fxml"));
-		Scene main = new Scene(root, MENU_WIDTH, MENU_HEIGHT);
-		boolean b = true;
+		Scene main = new Scene(root, MENU_WIDTH, MENU_HEIGHT); 	
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		
 		Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-	    stage.setX((screenBounds.getWidth() - MENU_WIDTH) / 2);
-		stage.setY((screenBounds.getHeight() - MENU_HEIGHT) / 2);
-		while(b) { b = false; }
+	    stage.setX((screenBounds.getWidth() - MENU_WIDTH) / 2); 
+		stage.setY((screenBounds.getHeight() - MENU_HEIGHT) / 2);  
+		
 		stage.setScene(main);
-		stage.setTitle("Rally - Settings");
+		stage.setTitle("Rally - Controls");
 		stage.show();
 	}
 	
@@ -84,12 +85,16 @@ public class FXMLMainMenuController {
 		stage.setScene(main);
 		stage.setTitle("Rally - Leaderboard");
 		stage.show();
+		//getLeaderboard(stage);
 	}
 	
 	@FXML
 	protected void handleExit(ActionEvent event) throws IOException {
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.close();
+		Platform.exit();
+		System.exit(0);
+
 		
 	}
 	
@@ -157,9 +162,9 @@ public class FXMLMainMenuController {
 		scoreBlue = new Label("0");
 		scoreRed = new Label("0"); 
         
-        scoreBlue.relocate( 350, 25);
-        scoreRed.relocate(600, 25);
-        scene.setRoot(root);
+        scoreBlue.relocate( 600, 25);
+        scoreRed.relocate(350, 25);
+        
         root.getChildren().addAll(scoreBlue, scoreRed);
 	}
 	
@@ -167,7 +172,6 @@ public class FXMLMainMenuController {
 		Button back = new Button("Menu");
         back.relocate(50, 25);
         root.getChildren().add(back);
-		scene.setRoot(root);
         back.setOnAction(new EventHandler<ActionEvent>() {
         	public void handle(ActionEvent e) {
         		Parent root;
