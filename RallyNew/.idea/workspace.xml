@@ -17,7 +17,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/menu/FXMLMainMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-317">
-              <caret line="172" column="4" lean-forward="true" selection-start-line="172" selection-start-column="4" selection-end-line="172" selection-end-column="4" />
+              <caret line="172" column="4" lean-forward="false" selection-start-line="172" selection-start-column="4" selection-end-line="172" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -37,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/game/PhysicsObject.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="59">
-              <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+              <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,14 +45,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestPhysicsObjectScarborough.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TestPhysicsObjectScarborough.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/integrationTests/TestPhysicsObjectScarborough.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="385">
-              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhysicsSimulation.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/game/PhysicsSimulation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="151">
+              <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -71,7 +81,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/unitTests/TestVector2DScarborough.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="11" selection-end-column="34" />
+              <caret line="10" column="9" lean-forward="false" selection-start-line="10" selection-start-column="9" selection-end-line="11" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,7 +131,6 @@
         <option value="$PROJECT_DIR$/src/main/java/menu/FXMLController.java" />
         <option value="$PROJECT_DIR$/src/main/java/menu/FXMLTwoPlayerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/menu/MainMenu.java" />
-        <option value="$PROJECT_DIR$/src/main/java/game/PhysicsSimulation.java" />
         <option value="$PROJECT_DIR$/src/main/java/game/GameTimer.java" />
         <option value="$PROJECT_DIR$/src/main/java/menu/FXMLInsertPageController.java" />
         <option value="$PROJECT_DIR$/src/main/java/menu/FXMLLeaderBoardController.java" />
@@ -138,6 +147,7 @@
         <option value="$PROJECT_DIR$/src/test/java/unitTests/TestVector2DScarborough.java" />
         <option value="$PROJECT_DIR$/src/main/java/game/PhysicsObject.java" />
         <option value="$PROJECT_DIR$/src/test/java/integrationTests/TestPhysicsObjectScarborough.java" />
+        <option value="$PROJECT_DIR$/src/main/java/game/PhysicsSimulation.java" />
       </list>
     </option>
   </component>
@@ -488,7 +498,7 @@
         <state relative-caret-position="210">
           <caret line="24" column="44" lean-forward="true" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
           <folding>
-            <marker date="1528418777448" expanded="true" signature="2080:2083" ph="{...}" />
+            <marker date="1528422563090" expanded="true" signature="2092:2095" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -568,7 +578,7 @@
         <state relative-caret-position="195">
           <caret line="22" column="68" lean-forward="false" selection-start-line="22" selection-start-column="68" selection-end-line="22" selection-end-column="68" />
           <folding>
-            <marker date="1528418777448" expanded="true" signature="2080:2083" ph="{...}" />
+            <marker date="1528422563090" expanded="true" signature="2092:2095" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -773,7 +783,7 @@
         <state relative-caret-position="191">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <marker date="1528418777448" expanded="true" signature="2080:2083" ph="{...}" />
+            <marker date="1528422563090" expanded="true" signature="2092:2095" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -823,7 +833,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/unitTests/TestVector2DScarborough.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="11" selection-end-column="34" />
+          <caret line="10" column="9" lean-forward="false" selection-start-line="10" selection-start-column="9" selection-end-line="11" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -833,15 +843,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/menu/FXMLMainMenuController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-317">
-          <caret line="172" column="4" lean-forward="true" selection-start-line="172" selection-start-column="4" selection-end-line="172" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/game/PhysicsSimulation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="36" column="140" lean-forward="false" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="140" />
+          <caret line="172" column="4" lean-forward="false" selection-start-line="172" selection-start-column="4" selection-end-line="172" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -857,7 +859,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/game/PhysicsObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="59">
-          <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+          <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -867,10 +869,18 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/integrationTests/TestPhysicsObjectScarborough.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
-          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game/PhysicsSimulation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

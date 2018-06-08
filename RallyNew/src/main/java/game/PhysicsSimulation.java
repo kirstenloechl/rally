@@ -96,7 +96,7 @@ public class PhysicsSimulation {
         for(PhysicsObject b: balls) {
 
             b.setPosition(width / 2, height / 4);
-            b.setVelocity(Math.random() * 1000 - 250, Math.random() * 1000 - 250);
+            b.setVelocity(Math.random() * 1000 - 500, Math.random() * 1000 - 750);
 
         }
     }
